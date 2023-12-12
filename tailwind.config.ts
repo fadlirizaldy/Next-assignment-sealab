@@ -18,9 +18,10 @@ const config: Config = {
         primaryBg: "#F6F6F6",
         primaryBtn: "#296468",
         secondaryText: "#5B595A",
+        dangerText: "#FF4949",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
 export default config;

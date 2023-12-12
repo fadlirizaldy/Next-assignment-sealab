@@ -1,12 +1,12 @@
 import AdminLayout from "@/components/AdminLayout";
-import HeaderAdmin from "@/components/HeaderAdmin";
 import React from "react";
 
 const dashboard = () => {
   return (
     <AdminLayout>
-      <HeaderAdmin />
-      <h2>ADMIN</h2>
+      <div className="flex justify-center h-screen">
+        <div className="w-40 p-5">Dashboard</div>
+      </div>
     </AdminLayout>
   );
 };

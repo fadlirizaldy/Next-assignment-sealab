@@ -6,6 +6,7 @@
       "email": "fadlirizaldy@gmail.com",
       "password": "fadli123",
       "like": [1, 2],
+      "plan": "free",
       "expired_subs": "2023-01-05",
       "role": "admin"
     },
@@ -15,13 +16,14 @@
       "email": "fadli@gmail.com",
       "password": "fadli2",
       "like": ["horror"],
+      "plan": "premium",
       "expired_subs": "2023-01-05",
       "role": "user"
     }
   ],
-  "posts": [
+  "news": [
     {
-      "post_id": "4ad45414-9660-11ee-b9d1-0242ac120002",
+      "news_id": "4ad45414-9660-11ee-b9d1-0242ac120002",
       "title": "New Walking Dead Game is Being Shut Down",
       "description": "Developers of a recent Walking Dead game announce they are stopping development and removing the game from Steam early next week. Other Ocean Interactive and Skybound Games, developer and publisher of The Walking Dead: Betrayal, have announced they will be stopping development on the social deduction game and will be removing it from Steam. The announcement comes just three months after the game was released in early-access, much to the disappointment of fans and the development team.",
       "isPremium": true,
@@ -32,7 +34,7 @@
       "updated_at": "2023-11-04"
     },
     {
-      "post_id": "6a64dbde-9668-11ee-b9d1-0242ac120002",
+      "news_id": "6a64dbde-9668-11ee-b9d1-0242ac120002",
       "title": "Baldur's Gate 3 Releases Hotfix 13",
       "description": "Baldur's Gate 3 has released a small update on arguably its biggest night, fixing a few important bugs, glitches, crashes, and even a certain exploit regarding merchants. While Patch 5 for Baldur's Gate 3 added a proper epilogue to the game, Larian Studios also sought to address some of the game's technical shortcomings as well. For example, Baldur's Gate 3 at launch famously had frequent FPS drops during the massive overworld of Act 3, and Larian discovered a way to improve performance in time for Patch 5 while developing the game's Xbox port.",
       "isPremium": false,
