@@ -7,18 +7,12 @@ import { fetcherGet, fetcherPatch, fetcherPost } from "@/services/fetcher/fetche
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AdminLayout from "@/components/AdminLayout";
 import Link from "next/link";
+import { defaultNewsData } from "../add";
 
 const EditNewsPage = () => {
   const router = useRouter();
   const { editNewsId: id } = router.query;
-  const [dataNews, setDataNews] = useState({
-    id: "",
-    title: "",
-    description: "",
-    isPremium: false,
-    img: "",
-    category: "",
-  });
+  const [dataNews, setDataNews] = useState(defaultNewsData);
 
   useEffect(() => {
     fetcherGet(baseUrl(`/news/${id}`))
@@ -26,9 +20,48 @@ const EditNewsPage = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const [error, setError] = useState(defaultNewsData);
+
+  const validateNews = () => {
+    if (dataNews.title === "" || dataNews.title.length < 10) {
+      setError((prev) => ({ ...prev, title: "Please enter 10 length title" }));
+    } else {
+      setError((prev) => ({ ...prev, title: "" }));
+    }
+
+    if (dataNews.category === "") {
+      setError((prev) => ({ ...prev, category: "Please enter the category" }));
+    } else {
+      setError((prev) => ({ ...prev, category: "" }));
+    }
+    if (dataNews.description === "") {
+      setError((prev) => ({ ...prev, description: "Please enter the description" }));
+    } else {
+      setError((prev) => ({ ...prev, description: "" }));
+    }
+    if (!dataNews.img) {
+      setError((prev) => ({ ...prev, img: "Please enter the photo" }));
+    } else {
+      setError((prev) => ({ ...prev, img: "" }));
+    }
+
+    if (
+      dataNews.title === "" ||
+      dataNews.title.length < 10 ||
+      dataNews.category === "" ||
+      dataNews.description === "" ||
+      !dataNews.img
+    )
+      return false;
+
+    return true;
+  };
+
   const handleSubmitData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!validateNews()) return;
     let urlTmp = "";
+
     if (typeof dataNews.img !== "string") {
       const formData = new FormData();
       formData.append("file", dataNews.img);
@@ -46,18 +79,18 @@ const EditNewsPage = () => {
       updated_at: new Date().toLocaleString(),
     };
 
-    await fetcherPatch(baseUrl(`/news/${dataNews.id}`), newData);
+    await fetcherPatch(baseUrl(`/news/${id}`), newData);
     router.push("/admin/news");
   };
 
   return (
     <AdminLayout>
-      <Link href={"/admin/news"} className="font-semibold text-blue-700 underline py-1 mt-4 ml-5">
+      <Link href={"/admin/news"} className="w-fit font-semibold text-blue-700 underline py-1 mt-4 ml-5">
         Back
       </Link>
       <div className="flex justify-center my-16 h-full">
         <div className="max-w-[1200px] w-[50%] mx-auto h-[80%]">
-          <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">Edit News</h1>
+          <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">Add News</h1>
 
           <form className="mt-5 flex flex-col gap-4" onSubmit={(e) => handleSubmitData(e)}>
             <div className="flex flex-col">
@@ -70,6 +103,7 @@ const EditNewsPage = () => {
                 onChange={(e) => setDataNews((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
                 value={dataNews.title}
               />
+              {error.title && <p className="text-red-600">{error.title}</p>}
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col">
@@ -89,6 +123,7 @@ const EditNewsPage = () => {
                   <option value="Simulation and sports">Simulation and sports</option>
                   <option value="Puzzlers and party games">Puzzlers and party games</option>
                 </select>
+                {error.category && <p className="text-red-600">{error.category}</p>}
               </div>
               <div className="flex flex-col">
                 <label className="font-medium text-xl mb-1">Type</label>
@@ -98,8 +133,11 @@ const EditNewsPage = () => {
                   onChange={(e) =>
                     setDataNews((prev) => ({ ...prev, [e.target.name]: e.target.value === "free" ? false : true }))
                   }
-                  defaultValue={dataNews.isPremium ? "premium" : "free"}
+                  value={dataNews.isPremium ? "premium" : "free"}
                 >
+                  <option value="" selected disabled hidden>
+                    Choose a type
+                  </option>
                   <option value="free">Free</option>
                   <option value="premium">Premium</option>
                 </select>
@@ -107,15 +145,17 @@ const EditNewsPage = () => {
             </div>
 
             <div className="flex flex-col">
-              <label className="font-medium text-xl mb-1">Description</label>
+              <label className="font-medium text-xl mb-1">{error.description}</label>
               <textarea
                 name="description"
                 id=""
                 cols={30}
                 rows={10}
                 className="p-2 rounded-lg border border-gray-300"
+                value={dataNews.description}
                 onChange={(e) => setDataNews((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
               ></textarea>
+              {error.description && <p className="text-red-600">{error.description}</p>}
             </div>
 
             <label className="font-medium text-xl ">Upload Image</label>
@@ -142,18 +182,21 @@ const EditNewsPage = () => {
                 </div>
               </div>
             ) : (
-              <div className="relative w-20 h-20 cursor-pointer bg-[#D2D7E0] rounded-2xl flex justify-center items-center">
-                <input
-                  type="file"
-                  name="img"
-                  id="imageInput"
-                  className="absolute w-full h-full opacity-0 cursor-pointer"
-                  accept="image/png, image/gif, image/jpeg"
-                  placeholder="Input Image"
-                  onChange={(e) => setDataNews((prev) => ({ ...prev, [e.target.name]: e.target.files![0] }))}
-                />
-                <Icon icon="material-symbols:add" className="w-12 h-12" />
-              </div>
+              <>
+                {error.img && <p className="text-red-600">{error.img}</p>}
+                <div className="relative w-20 h-20 cursor-pointer bg-[#D2D7E0] rounded-2xl flex justify-center items-center">
+                  <input
+                    type="file"
+                    name="img"
+                    id="imageInput"
+                    className="absolute w-full h-full opacity-0 cursor-pointer"
+                    accept="image/png, image/gif, image/jpeg"
+                    placeholder="Input Image"
+                    onChange={(e) => setDataNews((prev) => ({ ...prev, [e.target.name]: e.target.files![0] }))}
+                  />
+                  <Icon icon="material-symbols:add" className="w-12 h-12" />
+                </div>
+              </>
             )}
             <div className="flex justify-end">
               <button

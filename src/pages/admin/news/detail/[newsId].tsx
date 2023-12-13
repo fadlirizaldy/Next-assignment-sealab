@@ -29,7 +29,7 @@ const DetailPage = () => {
 
   return (
     <AdminLayout>
-      <Link href={"/admin/news"} className="font-semibold text-blue-700 underline py-1 mt-4 ml-5">
+      <Link href={"/admin/news"} className="w-fit font-semibold text-blue-700 underline py-1 mt-4 ml-5">
         Back
       </Link>
       <div className="flex justify-center my-16 h-full">
