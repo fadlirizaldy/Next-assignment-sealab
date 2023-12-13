@@ -1,9 +1,10 @@
 import { NewsType } from "@/utils/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { useRouter } from "next/router";
 import React from "react";
 
 const TableNews = ({ data }: { data: NewsType[] }) => {
-  console.log(data);
+  const router = useRouter();
   return (
     <table className="w-full text-left rtl:text-right text-secondaryText dark:text-gray-400">
       <thead className="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -29,10 +30,10 @@ const TableNews = ({ data }: { data: NewsType[] }) => {
         {data?.map((item: NewsType) => (
           <tr
             className="max-h-32 odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 cursor-pointer"
-            key={item.news_id}
+            key={item.id}
             onClick={() => alert("row clicked")}
           >
-            <td className="px-6 py-5">{item.news_id.slice(0, 10) + "..."}</td>
+            <td className="px-6 py-5">{item.id.slice(0, 10) + "..."}</td>
             <th className=" py-5 truncate px-6">{item.title.slice(0, 20) + "..."}</th>
             <td className="px-6 py-5">{item.category}</td>
             <th className="px-6 pt-2 font-medium text-secondaryText dark:text-white line-clamp-2 overflow-hidden">
@@ -47,7 +48,7 @@ const TableNews = ({ data }: { data: NewsType[] }) => {
                   height="24"
                   onClick={(e) => {
                     e.stopPropagation();
-                    alert("edit clicked");
+                    router.push(`/admin/news/edit/${item.id}`);
                   }}
                 />
                 <Icon

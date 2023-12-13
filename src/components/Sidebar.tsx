@@ -26,7 +26,7 @@ const Sidebar = () => {
         <Link
           href={"/admin/news"}
           className={`px-8 py-5 flex gap-5 items-center hover:bg-primary transition-all ${
-            pathname === "/admin/news" ? "bg-primary" : ""
+            pathname.includes("/news") ? "bg-primary" : ""
           }`}
         >
           <Icon icon="material-symbols:dashboard" className="text-white" width="24" height="24" />
@@ -35,7 +35,7 @@ const Sidebar = () => {
         <Link
           href={"/admin/transactions"}
           className={`px-8 py-5 flex gap-5 items-center hover:bg-primary transition-all ${
-            pathname === "/admin/transactions" ? "bg-primary" : ""
+            pathname.includes("/transactions") ? "bg-primary" : ""
           }`}
         >
           <Icon icon="material-symbols:dashboard" className="text-white" width="24" height="24" />
@@ -44,7 +44,7 @@ const Sidebar = () => {
         <Link
           href={"/admin/users"}
           className={`px-8 py-5 flex gap-5 items-center hover:bg-primary transition-all ${
-            pathname === "/admin/users" ? "bg-primary" : ""
+            pathname.includes("/users") ? "bg-primary" : ""
           }`}
         >
           <Icon icon="material-symbols:dashboard" className="text-white" width="24" height="24" />

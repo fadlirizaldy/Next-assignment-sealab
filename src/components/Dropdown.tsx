@@ -20,7 +20,7 @@ const Dropdown = ({ type, setDropdownType, children }: DropdownType) => {
       onClick={() => setShowDropdown(!showDropdown)}
     >
       <div className="flex justify-between items-center w-full">
-        <h2 className="font-medium text-lg text-gray-700">{type}</h2>
+        <h2 className="font-medium text-lg text-gray-700 line-clamp-1">{type}</h2>
 
         {type === "Category" || type === "Sort by" ? (
           <Icon icon="octicon:triangle-down-24" />
@@ -33,10 +33,10 @@ const Dropdown = ({ type, setDropdownType, children }: DropdownType) => {
             onClick={(e) => {
               e.stopPropagation();
               setDropdownType((prev) => {
-                if (["Fighting", "Survival", "Battle Royale"].includes(type)) {
-                  return { ...prev, category: "Category" };
+                if (["Date - Asc", "Date - Desc"].includes(type)) {
+                  return { ...prev, sort: "Sort by" };
                 } else {
-                  return { ...prev, category: "Sort by" };
+                  return { ...prev, category: "Category" };
                 }
               });
             }}

@@ -4,6 +4,7 @@ import TableNews from "@/components/TableNews";
 import { baseUrl } from "@/services/base";
 import { fetcherGet } from "@/services/fetcher/fetcher";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import Link from "next/link";
 import React, { useState } from "react";
 import useSWR from "swr";
 
@@ -20,9 +21,12 @@ const NewsPage = () => {
           <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">All News</h1>
 
           <div className="bg-white p-4 flex gap-2 rounded-xl mt-8 items-center">
-            <section>
-              <button className="p-2 bg-primaryBtn rounded-md w-32 text-white">Add News</button>
-            </section>
+            <Link
+              href={"/admin/news/add"}
+              className="p-2 text-center bg-primaryBtn rounded-md w-32 text-white hover:opacity-95"
+            >
+              Add News
+            </Link>
 
             <section className="flex gap-4 w-full justify-end items-center">
               <h2 className="font-semibold text-xl">Filter</h2>
@@ -30,21 +34,35 @@ const NewsPage = () => {
                 <div className="p-2 w-full flex flex-col bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] absolute rounded-lg font-medium top-[50px] right-0 z-10">
                   <p
                     className="py-2 px-2 hover:bg-gray-100"
-                    onClick={() => setDropdownType((prev) => ({ ...prev, category: "Fighting" }))}
+                    onClick={() =>
+                      setDropdownType((prev) => ({ ...prev, category: "Multiplayer online battle arena (MOBA)" }))
+                    }
                   >
-                    Fighting
+                    Multiplayer online battle arena (MOBA)
                   </p>
                   <p
                     className="py-2 px-2 hover:bg-gray-100"
-                    onClick={() => setDropdownType((prev) => ({ ...prev, category: "Survival" }))}
+                    onClick={() => setDropdownType((prev) => ({ ...prev, category: "Shooters (FPS and TPS)" }))}
                   >
-                    Survival
+                    Shooters (FPS and TPS)
                   </p>
                   <p
                     className="py-2 px-2 hover:bg-gray-100"
-                    onClick={() => setDropdownType((prev) => ({ ...prev, category: "Battle Royale" }))}
+                    onClick={() => setDropdownType((prev) => ({ ...prev, category: "Role-playing (RPG)" }))}
                   >
-                    Battle Royale
+                    Role-playing (RPG)
+                  </p>
+                  <p
+                    className="py-2 px-2 hover:bg-gray-100"
+                    onClick={() => setDropdownType((prev) => ({ ...prev, category: "Simulation and sports" }))}
+                  >
+                    Simulation and sports
+                  </p>
+                  <p
+                    className="py-2 px-2 hover:bg-gray-100"
+                    onClick={() => setDropdownType((prev) => ({ ...prev, category: "Puzzlers and party games" }))}
+                  >
+                    Puzzlers and party games
                   </p>
                 </div>
               </Dropdown>

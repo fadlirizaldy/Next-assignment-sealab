@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "user_id": "26534a16-9654-11ee-b9d1-0242ac120002",
+      "id": "26534a16-9654-11ee-b9d1-0242ac120002",
       "name": "Fadli Rizaldy",
       "email": "fadlirizaldy@gmail.com",
       "password": "fadli123",
@@ -11,7 +11,7 @@
       "role": "admin"
     },
     {
-      "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
+      "id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "name": "Fadli Rizaldy",
       "email": "fadli@gmail.com",
       "password": "fadli2",
@@ -23,7 +23,7 @@
   ],
   "news": [
     {
-      "news_id": "4ad45414-9660-11ee-b9d1-0242ac120002",
+      "id": "4ad45414-9660-11ee-b9d1-0242ac120002",
       "title": "New Walking Dead Game is Being Shut Down",
       "description": "Developers of a recent Walking Dead game announce they are stopping development and removing the game from Steam early next week. Other Ocean Interactive and Skybound Games, developer and publisher of The Walking Dead: Betrayal, have announced they will be stopping development on the social deduction game and will be removing it from Steam. The announcement comes just three months after the game was released in early-access, much to the disappointment of fans and the development team.",
       "isPremium": true,
@@ -34,7 +34,7 @@
       "updated_at": "2023-11-04"
     },
     {
-      "news_id": "6a64dbde-9668-11ee-b9d1-0242ac120002",
+      "id": "6a64dbde-9668-11ee-b9d1-0242ac120002",
       "title": "Baldur's Gate 3 Releases Hotfix 13",
       "description": "Baldur's Gate 3 has released a small update on arguably its biggest night, fixing a few important bugs, glitches, crashes, and even a certain exploit regarding merchants. While Patch 5 for Baldur's Gate 3 added a proper epilogue to the game, Larian Studios also sought to address some of the game's technical shortcomings as well. For example, Baldur's Gate 3 at launch famously had frequent FPS drops during the massive overworld of Act 3, and Larian discovered a way to improve performance in time for Patch 5 while developing the game's Xbox port.",
       "isPremium": false,
@@ -43,10 +43,22 @@
       "category": "adventure",
       "created_at": "2023-10-01",
       "updated_at": "2023-11-04"
+    },
+    {
+      "title": "Tes",
+      "description": "COBAA GENG",
+      "isPremium": true,
+      "img": "http://res.cloudinary.com/db5fjn9m2/image/upload/v1702439789/Screenshot_from_2023-11-18_09-40-59_vqjqvt.png",
+      "category": "rpg",
+      "like": 0,
+      "created_at": "12/13/2023, 10:56:30 AM",
+      "updated_at": "12/13/2023, 10:56:30 AM",
+      "id": "AlGCnxw"
     }
   ],
   "transactions": [
     {
+      "id": "6635d7da-b290-4ff4-8924-18c9a71135c5",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "transactions_id": "88cc3ba4-9667-11ee-b9d1-0242ac120002",
       "type": 1,
@@ -55,6 +67,7 @@
       "status": "process"
     },
     {
+      "id": "c629a515-dc12-4a5d-8299-6b507489c581",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "transactions_id": "4be282c4-9668-11ee-b9d1-0242ac120002",
       "type": 2,

@@ -1,5 +1,5 @@
 export type UserType = {
-  user_id: string;
+  id: string;
   name: string;
   email: string;
   password: string;
@@ -10,7 +10,7 @@ export type UserType = {
 };
 
 export type NewsType = {
-  news_id: string;
+  id: string;
   title: string;
   description: string;
   isPremium: boolean;
@@ -22,6 +22,7 @@ export type NewsType = {
 };
 
 export type TransactionType = {
+  id: string;
   user_id: string;
   transactions_id: string;
   type: number;
