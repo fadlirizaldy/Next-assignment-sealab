@@ -12,6 +12,7 @@ const EditNewsPage = () => {
   const router = useRouter();
   const { editNewsId: id } = router.query;
   const [dataNews, setDataNews] = useState({
+    id: "",
     title: "",
     description: "",
     isPremium: false,
@@ -27,20 +28,26 @@ const EditNewsPage = () => {
 
   const handleSubmitData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", dataNews.img);
-    formData.append("upload_preset", "matoa_admin");
+    let urlTmp = "";
+    if (typeof dataNews.img !== "string") {
+      const formData = new FormData();
+      formData.append("file", dataNews.img);
+      formData.append("upload_preset", "matoa_admin");
 
-    const { url } = await fetcherPost("https://api.cloudinary.com/v1_1/db5fjn9m2/image/upload", formData);
+      const { url } = await fetcherPost("https://api.cloudinary.com/v1_1/db5fjn9m2/image/upload", formData);
+      urlTmp = url;
+    }
 
     const newData = {
       ...dataNews,
       id: uuidv4(),
       like: 0,
-      img: url,
-      created_at: new Date().toLocaleString(),
+      img: urlTmp,
       updated_at: new Date().toLocaleString(),
     };
+
+    await fetcherPatch(baseUrl(`/news/${dataNews.id}`), newData);
+    router.push("/admin/news");
   };
 
   return (

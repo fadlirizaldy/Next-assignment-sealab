@@ -3,6 +3,7 @@ import Dropdown from "@/components/Dropdown";
 import TableNews from "@/components/TableNews";
 import { baseUrl } from "@/services/base";
 import { fetcherGet } from "@/services/fetcher/fetcher";
+import { useDebounce } from "@/utils/hooks";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -11,9 +12,12 @@ import useSWR from "swr";
 export type DropdownType = { category: string; sort: string };
 
 const NewsPage = () => {
-  const { data, isLoading } = useSWR(baseUrl("/news?_page=1&_limit=8"), fetcherGet);
+  const [searchVal, setSearchVal] = useState("");
+  const searchDebounce = useDebounce(searchVal, 500);
+  const { data, isLoading } = useSWR(baseUrl(`/news?q=${searchDebounce}&_page=1&_limit=8`), fetcherGet);
 
   const [dropdownType, setDropdownType] = useState({ category: "Category", sort: "Sort by" });
+
   return (
     <AdminLayout>
       <div className="flex justify-center mt-16 h-full">
@@ -88,6 +92,7 @@ const NewsPage = () => {
                   type="text"
                   placeholder="Search something..."
                   className="p-2 pr-8 border border-slate-400 rounded-xl w-full"
+                  onChange={(e) => setSearchVal(e.target.value)}
                 />
                 <Icon
                   icon="material-symbols:search"

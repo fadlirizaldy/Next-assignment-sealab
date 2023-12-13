@@ -8,15 +8,17 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import AdminLayout from "@/components/AdminLayout";
 import Link from "next/link";
 
+export const defaultNewsData = {
+  title: "",
+  description: "",
+  isPremium: false,
+  img: "",
+  category: "",
+};
+
 const AddNewsPage = () => {
   const router = useRouter();
-  const [dataNews, setDataNews] = useState({
-    title: "",
-    description: "",
-    isPremium: false,
-    img: "",
-    category: "",
-  });
+  const [dataNews, setDataNews] = useState(defaultNewsData);
 
   const handleSubmitData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
