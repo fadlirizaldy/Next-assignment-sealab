@@ -13,14 +13,17 @@ export type DropdownType = { category: string; sort: string };
 
 const NewsPage = () => {
   const [searchVal, setSearchVal] = useState("");
+  const [page, setPage] = useState(1);
+
   const searchDebounce = useDebounce(searchVal, 500);
-  const { data, isLoading } = useSWR(baseUrl(`/news?q=${searchDebounce}&_page=1&_limit=8`), fetcherGet);
+
+  const { data, isLoading } = useSWR(baseUrl(`/news?q=${searchDebounce}&_page=${page}&_limit=8`), fetcherGet);
 
   const [dropdownType, setDropdownType] = useState({ category: "Category", sort: "Sort by" });
 
   return (
     <AdminLayout>
-      <div className="flex justify-center mt-16 h-full">
+      <div className="flex justify-center my-14 h-full">
         <div className="font-bold max-w-[1200px] w-[90%] mx-auto h-[80%]">
           <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">All News</h1>
 
@@ -113,14 +116,30 @@ const NewsPage = () => {
               icon="fluent:triangle-left-12-filled"
               width={24}
               height={24}
-              className="text-primaryBtn opacity-75 cursor-pointer"
+              className={`text-primaryBtn ${
+                page === 1 ? "opacity-75 cursor-not-allowed" : "opacity-100 cursor-pointer"
+              }`}
+              onClick={() =>
+                setPage((prev) => {
+                  if (prev === 1) return prev;
+                  return prev - 1;
+                })
+              }
             />
-            <h4 className="font-medium text-xl">1</h4>
+            <h4 className="font-medium text-xl">{page}</h4>
             <Icon
               icon="fluent:triangle-right-12-filled"
               width={24}
               height={24}
-              className="text-primaryBtn cursor-pointer"
+              className={`text-primaryBtn ${
+                data?.length < 8 ? "opacity-75 cursor-not-allowed" : "opacity-100 cursor-pointer"
+              }`}
+              onClick={() =>
+                setPage((prev) => {
+                  if (data?.length < 8) return prev;
+                  return prev + 1;
+                })
+              }
             />
           </div>
         </div>
