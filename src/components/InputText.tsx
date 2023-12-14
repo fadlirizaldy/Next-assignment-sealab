@@ -1,19 +1,21 @@
 import { DataLoginType } from "@/pages/auth/login";
+import { UserRegisterType } from "@/pages/auth/register";
 import React from "react";
 
 type InputPropsType = {
+  title: string;
   name: string;
   placeholder: string;
   type: string;
   data: string;
-  setData: React.Dispatch<React.SetStateAction<DataLoginType>>;
+  setData: React.Dispatch<React.SetStateAction<DataLoginType | UserRegisterType>>;
 };
 
-const InputText = ({ name, placeholder, type, data, setData }: InputPropsType) => {
+const InputText = ({ title, name, placeholder, type, data, setData }: InputPropsType) => {
   return (
     <div>
       <label htmlFor="" className="font-medium text-[20px] mb-2 capitalize">
-        {name}
+        {title}
       </label>
       <input
         name={name}

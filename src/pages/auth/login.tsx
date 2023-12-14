@@ -44,7 +44,6 @@ const login = () => {
   const handleLogin = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     setLoading(true);
-    console.log(dataLogin);
 
     if (!validateLogin()) {
       setLoading(false);
@@ -80,6 +79,7 @@ const login = () => {
         <form className="flex flex-col gap-5">
           <div>
             <InputText
+              title="Email"
               name="email"
               type="text"
               placeholder="Enter your email"
@@ -90,6 +90,7 @@ const login = () => {
           </div>
           <div>
             <InputText
+              title="Password"
               name="password"
               type="password"
               placeholder="Enter your password"

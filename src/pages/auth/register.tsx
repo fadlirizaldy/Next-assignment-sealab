@@ -1,115 +1,238 @@
+import InputText from "@/components/InputText";
 import AuthLayout from "@/components/layouts/AuthLayout";
+import { baseUrl } from "@/services/base";
+import { v4 as uuidv4 } from "uuid";
+import { fetcherGet, fetcherPost } from "@/services/fetcher/fetcher";
+import { createReferralCode, isEmail, showToastMessage } from "@/utils/libs";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { ScaleLoader } from "react-spinners";
+import { ToastContainer } from "react-toastify";
+
+export type UserRegisterType = {
+  name?: string;
+  email: string;
+  password: string;
+  confirmPassword?: string;
+  address?: string;
+  phone?: string;
+  referral_code?: string;
+};
+
+const defaultData = {
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  address: "",
+  phone: "",
+  referral_code: "",
+};
 
 const register = () => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const [dataRegister, setDataRegister] = useState<UserRegisterType>(defaultData);
+  const [error, setError] = useState<UserRegisterType>(defaultData);
+
+  const validateRegister = () => {
+    if (dataRegister.name === "") {
+      setError((prev) => ({ ...prev, name: "Please enter a valid the name" }));
+    } else {
+      setError((prev) => ({ ...prev, name: "" }));
+    }
+
+    if (dataRegister.email === "" || !isEmail(dataRegister.email)) {
+      setError((prev) => ({ ...prev, email: "Please enter a valid the email" }));
+    } else {
+      setError((prev) => ({ ...prev, email: "" }));
+    }
+
+    if (dataRegister.password === "") {
+      setError((prev) => ({ ...prev, password: "Please enter the password" }));
+    } else {
+      setError((prev) => ({ ...prev, password: "" }));
+    }
+
+    if (dataRegister.password !== dataRegister.confirmPassword) {
+      setError((prev) => ({ ...prev, confirmPassword: "Password doesn't Match" }));
+    } else {
+      setError((prev) => ({ ...prev, confirmPassword: "" }));
+    }
+
+    if (dataRegister.address === "") {
+      setError((prev) => ({ ...prev, address: "Please enter the address" }));
+    } else {
+      setError((prev) => ({ ...prev, address: "" }));
+    }
+
+    if (dataRegister.phone === "") {
+      setError((prev) => ({ ...prev, phone: "Please enter the phone" }));
+    } else {
+      setError((prev) => ({ ...prev, phone: "" }));
+    }
+
+    if (
+      dataRegister.name === "" ||
+      dataRegister.email === "" ||
+      dataRegister.password === "" ||
+      !isEmail(dataRegister.email) ||
+      dataRegister.password !== dataRegister.confirmPassword ||
+      dataRegister.address === "" ||
+      dataRegister.phone === ""
+    )
+      return false;
+
+    return true;
+  };
+
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!validateRegister()) {
+      setLoading(false);
+      return;
+    }
+
+    const responseGetUser = await fetcherGet(
+      baseUrl(`/users?email=${dataRegister.email}&password=${dataRegister.password}`)
+    );
+
+    if (responseGetUser.length > 0) {
+      setError((prev) => ({ ...prev, email: "Email or password is already registered" }));
+      setLoading(false);
+      return;
+    }
+
+    const newData = {
+      id: uuidv4(),
+      ...dataRegister,
+      like: [],
+      imgUrl: "",
+      role: "user",
+      expired_subs: "",
+      referral_code: createReferralCode(),
+    };
+
+    const { confirmPassword, referral_code, ...newData2 } = newData;
+
+    await fetcherPost(baseUrl("/users"), newData2);
+    showToastMessage("Success register! Login to continue");
+
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+      router.replace("/auth/login");
+    }, 1500);
   };
   return (
-    <AuthLayout>
-      <h1 className="font-bold text-[32px] text-primary">Sign up</h1>
+    <>
+      <ToastContainer />
+      <AuthLayout>
+        <h1 className="font-bold text-[32px] text-primary mb-3">Sign up</h1>
 
-      <form className="flex flex-col gap-3">
-        <div className="mt-4">
-          <label htmlFor="" className="font-medium text-[20px] mb-2">
-            Name
-          </label>
-          <input
-            type="text"
-            placeholder="Enter your email"
-            className="rounded-[8px] border border-gray-400 bg-[#F9FAFB] focus:outline-primaryBtn px-4 w-full h-[52px]"
-          />
-        </div>
-        <div>
-          <label htmlFor="" className="font-medium text-[20px] mb-2">
-            Email
-          </label>
-          <input
-            type="text"
-            placeholder="Enter your email"
-            className="rounded-[8px] border border-gray-400 bg-[#F9FAFB] focus:outline-primaryBtn px-4 w-full h-[52px]"
-          />
-        </div>
-        <div>
-          <label htmlFor="" className="font-medium text-[20px] mb-2">
-            Password
-          </label>
-          <input
-            type="password"
-            placeholder="Enter your email"
-            className="rounded-[8px] border border-gray-400 bg-[#F9FAFB] focus:outline-primaryBtn px-4 w-full h-[52px]"
-          />
-        </div>
-        <div>
-          <label htmlFor="" className="font-medium text-[20px] mb-2">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            placeholder="Enter your email"
-            className="rounded-[8px] border border-gray-400 bg-[#F9FAFB] focus:outline-primaryBtn px-4 w-full h-[52px]"
-          />
-        </div>
-        <div>
-          <label htmlFor="" className="font-medium text-[20px] mb-2">
-            Address
-          </label>
-          <input
-            type="text"
-            placeholder="Enter your address"
-            className="rounded-[8px] border border-gray-400 bg-[#F9FAFB] focus:outline-primaryBtn px-4 w-full h-[52px]"
-          />
-        </div>
-
-        <div className="flex gap-3">
+        <form className="flex flex-col gap-3">
           <div>
-            <label htmlFor="" className="font-medium text-[20px] mb-2">
-              Phone
-            </label>
-            <input
+            <InputText
+              title="Name"
+              name="name"
+              placeholder="Enter your name"
+              setData={setDataRegister}
+              data={dataRegister.name!}
               type="text"
-              placeholder="Enter your address"
-              className="rounded-[8px] border border-gray-400 bg-[#F9FAFB] focus:outline-primaryBtn px-4 w-full h-[52px]"
             />
+            <p className="font-medium text-sm text-dangerText">{error.name}</p>
           </div>
           <div>
-            <label htmlFor="" className="font-medium text-[20px] mb-2">
-              Referral Code
-            </label>
-            <input
+            <InputText
+              title="Email"
+              name="email"
+              placeholder="Enter your email"
+              setData={setDataRegister}
+              data={dataRegister.email}
               type="text"
-              placeholder="Enter your address"
-              className="rounded-[8px] border border-gray-400 bg-[#F9FAFB] focus:outline-primaryBtn px-4 w-full h-[52px]"
             />
+            <p className="font-medium text-sm text-dangerText">{error.email}</p>
           </div>
-        </div>
+          <div>
+            <InputText
+              title="Password"
+              name="password"
+              placeholder="Enter your password"
+              setData={setDataRegister}
+              data={dataRegister.password}
+              type="password"
+            />
+            <p className="font-medium text-sm text-dangerText">{error.password}</p>
+          </div>
+          <div>
+            <InputText
+              title="Confirm Password"
+              name={"confirmPassword"}
+              data={dataRegister.confirmPassword!}
+              setData={setDataRegister}
+              placeholder="Match the password"
+              type="password"
+            />
+            <p className="font-medium text-sm text-dangerText">{error.confirmPassword}</p>
+          </div>
 
-        <button
-          onClick={handleLogin}
-          type="submit"
-          // disabled={validate || loading}
-          disabled={loading}
-          className="text-xl h-[44px] mt-5 mb-[15px] rounded-[8px] font-semibold text-white bg-primaryBtn disabled:cursor-not-allowed"
-        >
-          {loading ? <ScaleLoader color="#fff" height={15} /> : "Sign up"}
-        </button>
-      </form>
+          <div>
+            <InputText
+              title="Address"
+              name="address"
+              placeholder="Enter your address"
+              setData={setDataRegister}
+              data={dataRegister.address!}
+              type="text"
+            />
+            <p className="font-medium text-sm text-dangerText">{error.address}</p>
+          </div>
 
-      <p className="text-center">
-        Have an account? Login{" "}
-        <Link href="/auth/login" className="font-semibold text-primary">
-          here
-        </Link>
-      </p>
-    </AuthLayout>
+          <div className="flex gap-3">
+            <div>
+              <InputText
+                title="Phone"
+                name="phone"
+                placeholder="Enter your phoe"
+                setData={setDataRegister}
+                data={dataRegister.phone!}
+                type="text"
+              />
+              <p className="font-medium text-sm text-dangerText">{error.phone}</p>
+            </div>
+            <div>
+              <InputText
+                title="Referral Code"
+                name="referral_code"
+                placeholder="Enter your referral code if any"
+                setData={setDataRegister}
+                data={dataRegister.referral_code!}
+                type="text"
+              />
+            </div>
+          </div>
+
+          <button
+            onClick={handleSubmit}
+            type="submit"
+            disabled={loading}
+            className="text-xl h-[44px] mt-5 mb-[15px] rounded-[8px] font-semibold text-white bg-primaryBtn disabled:cursor-not-allowed"
+          >
+            {loading ? <ScaleLoader color="#fff" height={15} /> : "Sign up"}
+          </button>
+        </form>
+
+        <p className="text-center">
+          Have an account? Login{" "}
+          <Link href="/auth/login" className="font-semibold text-primary">
+            here
+          </Link>
+        </p>
+      </AuthLayout>
+    </>
   );
 };
 

@@ -5,7 +5,12 @@
       "name": "Fadli Rizaldy",
       "email": "fadli.rizaldi12@gmail.com",
       "password": "fadli123",
-      "like": [1, 2],
+      "phone": "085691115666",
+      "address": "Jalan",
+      "like": [
+        1,
+        2
+      ],
       "plan": "free",
       "imgUrl": "https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-man-is-wearing-glasses-in-silhouette-on-a-dark-background-image_2886069.jpg",
       "expired_subs": "2023-01-05",
@@ -17,7 +22,11 @@
       "name": "Fadli Rizaldy",
       "email": "fadli@gmail.com",
       "password": "fadli123",
-      "like": ["horror"],
+      "phone": "085691115666",
+      "address": "Jalan",
+      "like": [
+        "horror"
+      ],
       "plan": "premium",
       "imgUrl": "https://e1.pxfuel.com/desktop-wallpaper/903/679/desktop-wallpaper-97-aesthetic-best-profile-pic-for-instagram-for-boy-instagram-dp-boys.jpg",
       "expired_subs": "2023-01-05",
@@ -29,12 +38,32 @@
       "name": "Fadli Rizaldy",
       "email": "fadli1@gmail.com",
       "password": "fadli123",
-      "like": ["horror"],
+      "phone": "08976215666",
+      "address": "Jalan",
+      "like": [
+        "horror"
+      ],
       "plan": "free",
       "imgUrl": "https://e1.pxfuel.com/desktop-wallpaper/903/679/desktop-wallpaper-97-aesthetic-best-profile-pic-for-instagram-for-boy-instagram-dp-boys.jpg",
       "expired_subs": "2023-01-05",
       "role": "user",
       "referral_code": "GHA99"
+    },
+    {
+      "{\"name\":\"fadli\",\"email\":\"fadli2@gmail.com\",\"password\":\"fadli123\",\"confirmPassword\":\"fadli123\",\"address\":\"jalan\",\"phone\":\"0988321\",\"referral_code\":\"\"}": "",
+      "id": "qs8v887"
+    },
+    {
+      "id": "a222fa3d-e8c1-495d-a1ce-256d9c894013",
+      "name": "fadli",
+      "email": "1@mail.com",
+      "password": "f",
+      "address": "jalan",
+      "phone": "08973216312",
+      "like": [],
+      "imgUrl": "",
+      "role": "user",
+      "expired_subs": ""
     }
   ],
   "news": [

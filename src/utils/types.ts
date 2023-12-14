@@ -7,6 +7,7 @@ export type UserType = {
   plan: string;
   expired_subs: Date;
   role: string;
+  referral_code: string;
 };
 
 export type NewsType = {
