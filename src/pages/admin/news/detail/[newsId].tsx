@@ -46,9 +46,9 @@ const DetailPage = () => {
             <img src={dataNews.img} alt="" className="w-[80%] object-cover" />
           </div>
 
-          <section className="mt-5">
+          <div className="mt-5">
             <p>{dataNews.description}</p>
-          </section>
+          </div>
         </div>
       </div>
     </AdminLayout>

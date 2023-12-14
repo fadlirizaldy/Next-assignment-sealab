@@ -111,7 +111,8 @@ const register = () => {
       id: uuidv4(),
       ...dataRegister,
       like: [],
-      imgUrl: "",
+      imgUrl:
+        "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg",
       role: "user",
       expired_subs: "",
       referral_code: createReferralCode(),

@@ -3,7 +3,6 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import ModalDelete from "./ModalDelete";
-import { defaultNewsData } from "@/pages/admin/news/add";
 
 const TableNews = ({ data }: { data: NewsType[] }) => {
   const router = useRouter();

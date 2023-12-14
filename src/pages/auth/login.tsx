@@ -9,7 +9,7 @@ import { ScaleLoader } from "react-spinners";
 
 import InputText from "@/components/InputText";
 import AuthLayout from "@/components/layouts/AuthLayout";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 export type DataLoginType = {
   email: string;
@@ -60,8 +60,12 @@ const login = () => {
       return;
     }
 
-    Cookies.set("user", responseGetLogin[0].id);
+    // localStorage.setItem("token", responseGetLogin[0].id);
+    // localStorage.setItem("role", responseGetLogin[0].role);
+
     Cookies.set("role", responseGetLogin[0].role);
+    Cookies.set("token", responseGetLogin[0].id);
+    // Cookies.set("role", responseGetLogin[0].role);
     showToastMessage("Success login! Welcome");
 
     setTimeout(() => {

@@ -1,9 +1,9 @@
 import { baseUrl } from "@/services/base";
 import { fetcherDelete } from "@/services/fetcher/fetcher";
-import { showToastMessage } from "@/utils/formatter";
 import { NewsType } from "@/utils/types";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { KeyedMutator } from "swr";
 
 const ModalDelete = ({
   dataDeleted,

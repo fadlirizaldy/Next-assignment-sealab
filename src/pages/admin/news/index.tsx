@@ -42,7 +42,7 @@ const NewsPage = () => {
               Add News
             </Link>
 
-            <section className="flex gap-4 w-full justify-end items-center">
+            <div className="flex gap-4 w-full justify-end items-center">
               <h2 className="font-semibold text-xl">Filter</h2>
               <Dropdown type={dropdownType.category} setDropdownType={setDropdownType}>
                 <div className="p-2 w-full flex flex-col bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] absolute rounded-lg font-medium top-[50px] right-0 z-10">
@@ -111,7 +111,7 @@ const NewsPage = () => {
                   height={24}
                 />
               </div>
-            </section>
+            </div>
           </div>
 
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
