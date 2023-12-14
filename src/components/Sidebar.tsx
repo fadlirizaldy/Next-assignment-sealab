@@ -1,10 +1,19 @@
 import Link from "next/link";
 import React from "react";
 import { Icon } from "@iconify/react";
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const { pathname } = useRouter();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    Cookies.remove("token");
+    Cookies.remove("role");
+
+    router.replace("/");
+  };
 
   return (
     <div className="py-10 fixed bg-secondary text-white w-[280px] flex flex-col min-h-screen">
@@ -53,7 +62,10 @@ const Sidebar = () => {
       </div>
 
       <div className="mt-44">
-        <div className="px-8 py-5 flex gap-5 items-center hover:bg-primary">
+        <div
+          className="px-8 py-5 flex gap-5 items-center cursor-pointer hover:bg-primary"
+          onClick={() => handleLogout()}
+        >
           <Icon icon="solar:logout-2-bold" className="text-white" width="24" height="24" />
           <h2 className="font-medium text-xl">Logout</h2>
         </div>

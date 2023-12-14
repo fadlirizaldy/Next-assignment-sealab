@@ -3,12 +3,9 @@
     {
       "id": "26534a16-9654-11ee-b9d1-0242ac120002",
       "name": "Fadli Rizaldy",
-      "email": "fadlirizaldy@gmail.com",
+      "email": "fadli.rizaldi12@gmail.com",
       "password": "fadli123",
-      "like": [
-        1,
-        2
-      ],
+      "like": [1, 2],
       "plan": "free",
       "expired_subs": "2023-01-05",
       "role": "admin"
@@ -17,10 +14,8 @@
       "id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "name": "Fadli Rizaldy",
       "email": "fadli@gmail.com",
-      "password": "fadli2",
-      "like": [
-        "horror"
-      ],
+      "password": "fadli123",
+      "like": ["horror"],
       "plan": "premium",
       "expired_subs": "2023-01-05",
       "role": "user"
