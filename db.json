@@ -7,8 +7,10 @@
       "password": "fadli123",
       "like": [1, 2],
       "plan": "free",
+      "imgUrl": "https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-man-is-wearing-glasses-in-silhouette-on-a-dark-background-image_2886069.jpg",
       "expired_subs": "2023-01-05",
-      "role": "admin"
+      "role": "admin",
+      "referral_code": "ABC12"
     },
     {
       "id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
@@ -17,8 +19,22 @@
       "password": "fadli123",
       "like": ["horror"],
       "plan": "premium",
+      "imgUrl": "https://e1.pxfuel.com/desktop-wallpaper/903/679/desktop-wallpaper-97-aesthetic-best-profile-pic-for-instagram-for-boy-instagram-dp-boys.jpg",
       "expired_subs": "2023-01-05",
-      "role": "user"
+      "role": "user",
+      "referral_code": "GHA99"
+    },
+    {
+      "id": "f6fp993c-9655-11ee-b9d1-0242ac120002",
+      "name": "Fadli Rizaldy",
+      "email": "fadli1@gmail.com",
+      "password": "fadli123",
+      "like": ["horror"],
+      "plan": "free",
+      "imgUrl": "https://e1.pxfuel.com/desktop-wallpaper/903/679/desktop-wallpaper-97-aesthetic-best-profile-pic-for-instagram-for-boy-instagram-dp-boys.jpg",
+      "expired_subs": "2023-01-05",
+      "role": "user",
+      "referral_code": "GHA99"
     }
   ],
   "news": [

@@ -9,6 +9,7 @@ import { ScaleLoader } from "react-spinners";
 
 import InputText from "@/components/InputText";
 import AuthLayout from "@/components/layouts/AuthLayout";
+import { ToastContainer, toast } from "react-toastify";
 
 export type DataLoginType = {
   email: string;
@@ -60,9 +61,8 @@ const login = () => {
       return;
     }
 
-    Cookies.set("token", responseGetLogin[0].id);
+    Cookies.set("user", responseGetLogin[0].id);
     Cookies.set("role", responseGetLogin[0].role);
-
     showToastMessage("Success login! Welcome");
 
     setTimeout(() => {
@@ -72,48 +72,51 @@ const login = () => {
   };
 
   return (
-    <AuthLayout>
-      <h1 className="font-bold text-[32px] text-primary mb-3">Login</h1>
+    <>
+      <ToastContainer />
+      <AuthLayout>
+        <h1 className="font-bold text-[32px] text-primary mb-3">Login</h1>
 
-      <form className="flex flex-col gap-5">
-        <div>
-          <InputText
-            name="email"
-            type="text"
-            placeholder="Enter your email"
-            data={dataLogin.email}
-            setData={setDataLogin}
-          />
-          <p className="font-medium text-sm text-dangerText">{error.email}</p>
-        </div>
-        <div>
-          <InputText
-            name="password"
-            type="password"
-            placeholder="Enter your password"
-            data={dataLogin.password}
-            setData={setDataLogin}
-          />
-          <p className="font-medium text-sm text-dangerText">{error.password}</p>
-        </div>
+        <form className="flex flex-col gap-5">
+          <div>
+            <InputText
+              name="email"
+              type="text"
+              placeholder="Enter your email"
+              data={dataLogin.email}
+              setData={setDataLogin}
+            />
+            <p className="font-medium text-sm text-dangerText">{error.email}</p>
+          </div>
+          <div>
+            <InputText
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+              data={dataLogin.password}
+              setData={setDataLogin}
+            />
+            <p className="font-medium text-sm text-dangerText">{error.password}</p>
+          </div>
 
-        <button
-          onClick={handleLogin}
-          type="submit"
-          disabled={loading}
-          className="text-xl h-[44px] mt-10 mb-[15px] rounded-[8px] font-semibold text-white bg-primaryBtn disabled:cursor-not-allowed"
-        >
-          {loading ? <ScaleLoader color="#fff" height={15} /> : "Log In"}
-        </button>
-      </form>
+          <button
+            onClick={handleLogin}
+            type="submit"
+            disabled={loading}
+            className="text-xl h-[44px] mt-10 mb-[15px] rounded-[8px] font-semibold text-white bg-primaryBtn disabled:cursor-not-allowed"
+          >
+            {loading ? <ScaleLoader color="#fff" height={15} /> : "Log In"}
+          </button>
+        </form>
 
-      <p className="text-center">
-        Don't have account yet? Regsiter{" "}
-        <Link href="/auth/register" className="font-semibold text-primary">
-          here
-        </Link>
-      </p>
-    </AuthLayout>
+        <p className="text-center">
+          Don't have account yet? Regsiter{" "}
+          <Link href="/auth/register" className="font-semibold text-primary">
+            here
+          </Link>
+        </p>
+      </AuthLayout>
+    </>
   );
 };
 

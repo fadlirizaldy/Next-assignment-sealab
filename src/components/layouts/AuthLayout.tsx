@@ -3,7 +3,7 @@ import React from "react";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       <div className="brightness-50 bg-[url(/background-login.jpg)] bg-no-repeat bg-cover absolute w-full h-full"></div>
       <Link href={"/"} className="font-semibold text-3xl absolute p-7 text-white">
         PixelNews
