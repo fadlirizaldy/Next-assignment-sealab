@@ -1,4 +1,4 @@
-import AdminLayout from "@/components/AdminLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 import { baseUrl } from "@/services/base";
 import { fetcherGet } from "@/services/fetcher/fetcher";
 import { Icon } from "@iconify/react/dist/iconify.js";

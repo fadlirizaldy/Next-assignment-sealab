@@ -1,4 +1,4 @@
-import AdminLayout from "@/components/AdminLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 import Dropdown from "@/components/Dropdown";
 import TableNews from "@/components/TableNews";
 import { baseUrl } from "@/services/base";
@@ -14,12 +14,19 @@ export type DropdownType = { category: string; sort: string };
 const NewsPage = () => {
   const [searchVal, setSearchVal] = useState("");
   const [page, setPage] = useState(1);
-
+  const [dropdownType, setDropdownType] = useState({ category: "Category", sort: "Sort by" });
   const searchDebounce = useDebounce(searchVal, 500);
 
-  const { data, isLoading } = useSWR(baseUrl(`/news?q=${searchDebounce}&_page=${page}&_limit=8`), fetcherGet);
-
-  const [dropdownType, setDropdownType] = useState({ category: "Category", sort: "Sort by" });
+  const { data, isLoading } = useSWR(
+    baseUrl(
+      `/news?q=${searchDebounce}&?category=${
+        dropdownType.category === "Category" ? "" : dropdownType.category
+      }&_page=${page}&_limit=8&_sort=${dropdownType.sort === "Sort by" ? "" : "created_at"}&_order=${dropdownType.sort
+        .slice(-3)
+        .toLowerCase()}`
+    ),
+    fetcherGet
+  );
 
   return (
     <AdminLayout>

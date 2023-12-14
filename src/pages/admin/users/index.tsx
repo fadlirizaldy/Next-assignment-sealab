@@ -1,4 +1,4 @@
-import AdminLayout from "@/components/AdminLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 import React from "react";
 
 const UsersPage = () => {

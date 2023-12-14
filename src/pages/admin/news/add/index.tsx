@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { baseUrl } from "@/services/base";
 import { fetcherPost } from "@/services/fetcher/fetcher";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import AdminLayout from "@/components/AdminLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 import Link from "next/link";
 
 export const defaultNewsData = {

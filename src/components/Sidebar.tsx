@@ -29,7 +29,7 @@ const Sidebar = () => {
             pathname.includes("/news") ? "bg-primary" : ""
           }`}
         >
-          <Icon icon="material-symbols:dashboard" className="text-white" width="24" height="24" />
+          <Icon icon="typcn:news" width="24" height="24" className="text-white" />
           <h2 className="font-medium text-xl">News</h2>
         </Link>
         <Link
@@ -38,7 +38,7 @@ const Sidebar = () => {
             pathname.includes("/transactions") ? "bg-primary" : ""
           }`}
         >
-          <Icon icon="material-symbols:dashboard" className="text-white" width="24" height="24" />
+          <Icon icon="solar:wallet-money-broken" className="text-white" width="24" height="24" />
           <h2 className="font-medium text-xl">Transactions</h2>
         </Link>
         <Link
@@ -47,14 +47,14 @@ const Sidebar = () => {
             pathname.includes("/users") ? "bg-primary" : ""
           }`}
         >
-          <Icon icon="material-symbols:dashboard" className="text-white" width="24" height="24" />
+          <Icon icon="mdi:user" className="text-white" width="24" height="24" />
           <h2 className="font-medium text-xl">Users</h2>
         </Link>
       </div>
 
       <div className="mt-44">
         <div className="px-8 py-5 flex gap-5 items-center hover:bg-primary">
-          <Icon icon="material-symbols:dashboard" className="text-white" width="24" height="24" />
+          <Icon icon="solar:logout-2-bold" className="text-white" width="24" height="24" />
           <h2 className="font-medium text-xl">Logout</h2>
         </div>
       </div>
