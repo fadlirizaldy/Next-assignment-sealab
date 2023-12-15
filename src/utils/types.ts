@@ -27,7 +27,7 @@ export type TransactionType = {
   id: string;
   user_id: string;
   transactions_id: string;
-  type: number;
+  type: string;
   transaction_date: string;
   total_paid: number;
   status: string;

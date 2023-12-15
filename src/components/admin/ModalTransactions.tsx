@@ -67,9 +67,25 @@ const ModalTransactions = ({
               <h3 className="font-semibold text-xl mb-2">Type Subscription</h3>
 
               <div className="p-5 rounded-xl shadow-md flex flex-col items-center border border-slate-400 w-fit">
-                <Icon icon="ri:game-fill" color="#f2c83b" />
-                <h4 className="font-semibold text-xl">Rookie Package</h4>
-                <p>Rp10000/month</p>
+                {data.type === "rookie" ? (
+                  <>
+                    <Icon icon="ri:game-fill" color="#f2c83b" width={30} height={30} />
+                    <h4 className="font-semibold text-xl">Rookie Package</h4>
+                    <p>Rp100.000/month</p>
+                  </>
+                ) : data.type === "amateur" ? (
+                  <>
+                    <Icon icon="icon-park-solid:game-console" color="#f2c83b" width={30} height={30} />
+                    <h4 className="font-semibold text-xl">Amateur Package</h4>
+                    <p>Rp270.000/3 month</p>
+                  </>
+                ) : (
+                  <>
+                    <Icon icon="ion:game-controller-sharp" color="#f2c83b" width={30} height={30} />
+                    <h4 className="font-semibold text-xl">Pro Package</h4>
+                    <p>Rp550.000/6 month</p>
+                  </>
+                )}
               </div>
             </div>
 

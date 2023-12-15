@@ -32,7 +32,8 @@ const TransactionsPage = () => {
         dropdownType.statusTransaction === "Status" ? "" : `&status=${dropdownType.statusTransaction}`
       }`
     ),
-    fetcherGet
+    fetcherGet,
+    { refreshInterval: 1000 }
   );
 
   return (
