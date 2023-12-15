@@ -17,7 +17,7 @@ const ModalConfirmTransaction = ({
       ></div>
       <div className="w-[30%] bg-white rounded-xl px-10 py-5 flex flex-col justify-center z-[400] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <div className="flex flex-col justify-between relative">
-          <h2 className="text-2xl pt-2 pb-5 text-center w-full text-primary font-semibold border-b-2 border-slate-700">
+          <h2 className="text-2xl pt-2 pb-3 mb-1 text-center w-full text-primary font-semibold border-b-2 border-slate-700">
             Are you sure want to{" "}
             <span className={`${choosenAction === "reject" ? "text-red-600" : "text-green-700"}`}>
               {choosenAction === "reject" ? "Reject" : "Accept"}
