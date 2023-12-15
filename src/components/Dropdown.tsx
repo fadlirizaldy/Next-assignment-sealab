@@ -1,14 +1,10 @@
+import { DropdownFilterType } from "@/pages/admin/news";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
 
 type DropdownType = {
   type: string;
-  setDropdownType: React.Dispatch<
-    React.SetStateAction<{
-      category: string;
-      sort: string;
-    }>
-  >;
+  setDropdownType: React.Dispatch<React.SetStateAction<DropdownFilterType>>;
   children: React.ReactNode;
 };
 
@@ -22,7 +18,7 @@ const Dropdown = ({ type, setDropdownType, children }: DropdownType) => {
       <div className="flex justify-between items-center w-full">
         <h2 className="font-medium text-lg text-gray-700 line-clamp-1">{type}</h2>
 
-        {type === "Category" || type === "Sort by" ? (
+        {type === "Category" || type === "Sort by" || type === "Type" ? (
           <Icon icon="octicon:triangle-down-24" />
         ) : (
           <Icon
@@ -35,7 +31,8 @@ const Dropdown = ({ type, setDropdownType, children }: DropdownType) => {
               setDropdownType((prev) => {
                 if (["Date - Asc", "Date - Desc"].includes(type)) {
                   return { ...prev, sort: "Sort by" };
-                } else {
+                } else if (["premium", "free"].includes(type)) return { ...prev, plan: "Type" };
+                else {
                   return { ...prev, category: "Category" };
                 }
               });

@@ -60,12 +60,9 @@ const login = () => {
       return;
     }
 
-    // localStorage.setItem("token", responseGetLogin[0].id);
-    // localStorage.setItem("role", responseGetLogin[0].role);
-
     Cookies.set("role", responseGetLogin[0].role);
     Cookies.set("token", responseGetLogin[0].id);
-    // Cookies.set("role", responseGetLogin[0].role);
+
     showToastMessage("Success login! Welcome");
 
     setTimeout(() => {

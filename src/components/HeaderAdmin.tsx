@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import useAuthStore from "./stores/userZustand";
 
 const HeaderAdmin = () => {
   const router = useRouter();
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const user = useAuthStore((state) => state.user);
+
   return (
     <div className="w-full px-10 py-4 bg-primary shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]">
       <div className="flex justify-end relative">
         <img
-          src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+          // src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+          src={user?.imgUrl}
           alt=""
           className="object-cover w-12 h-12 rounded-full cursor-pointer"
           onClick={() => setShowDropdown(!showDropdown)}
@@ -29,7 +34,7 @@ const HeaderAdmin = () => {
             onClick={() => {
               Cookies.remove("token");
               Cookies.remove("role");
-              router.push("/");
+              router.reload();
             }}
           >
             Logout

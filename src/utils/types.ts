@@ -5,6 +5,7 @@ export type UserType = {
   password: string;
   like: string[];
   plan: string;
+  imgUrl: string;
   expired_subs: Date;
   role: string;
   referral_code: string;

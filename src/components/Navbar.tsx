@@ -1,17 +1,30 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import useAuthStore from "./stores/userZustand";
+import { fetcherGet } from "@/services/fetcher/fetcher";
+import { baseUrl } from "@/services/base";
 
 const Navbar = () => {
   const token = Cookies.get("token");
-  // const token = localStoragee.getItem("token");
   const router = useRouter();
   const [showDropdown, setShowDropdown] = useState(false);
-  // if (token) {
-  //   var { data } = useSWR(baseUrl(`/users/${token}`), fetcherGet);
-  // }
-  // const token = "";
+
+  const user = useAuthStore((state) => state.user);
+  const setAuthed = useAuthStore((state) => state.setIsLoggedIn);
+  const isAuthed = useAuthStore((state) => state.isLoggedIn);
+  const setUser = useAuthStore((state) => state.setUser);
+
+  useEffect(() => {
+    if (token) {
+      fetcherGet(baseUrl(`/users/${token}`)).then((data) => {
+        setUser(data);
+      });
+      setAuthed(true);
+    }
+  }, [setAuthed, token]);
+
   return (
     <div className="w-full bg-primary text-white px-10 py-5">
       <div className="max-w-[1400px] w-[90%] mx-auto flex justify-between items-center">
@@ -31,13 +44,11 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {token ? (
+        {isAuthed ? (
           <div className="flex">
             <div className="relative">
               <img
-                src={
-                  "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
-                }
+                src={user.imgUrl}
                 alt=""
                 className="object-cover w-12 h-12 rounded-full cursor-pointer"
                 onClick={() => setShowDropdown(!showDropdown)}
@@ -56,7 +67,7 @@ const Navbar = () => {
                   disabled={!showDropdown}
                   onClick={() => {
                     Cookies.remove("token");
-                    Cookies.remove("token");
+                    Cookies.remove("role");
                     router.reload();
                   }}
                 >

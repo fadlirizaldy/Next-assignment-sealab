@@ -9,20 +9,20 @@ import Link from "next/link";
 import React, { useState } from "react";
 import useSWR from "swr";
 
-export type DropdownType = { category: string; sort: string };
+export type DropdownFilterType = { category?: string; sort?: string; plan?: string };
 
 const NewsPage = () => {
   const [searchVal, setSearchVal] = useState("");
   const [page, setPage] = useState(1);
-  const [dropdownType, setDropdownType] = useState({ category: "Category", sort: "Sort by" });
+  const [dropdownType, setDropdownType] = useState<DropdownFilterType>({ category: "Category", sort: "Sort by" });
   const searchDebounce = useDebounce(searchVal, 500);
 
   const { data, isLoading } = useSWR(
     baseUrl(
       `/news?q=${searchDebounce}&?category=${
-        dropdownType.category === "Category" ? "" : dropdownType.category
-      }&_page=${page}&_limit=8&_sort=${dropdownType.sort === "Sort by" ? "" : "created_at"}&_order=${dropdownType.sort
-        .slice(-3)
+        dropdownType.category === "Category" ? "" : dropdownType.category!
+      }&_page=${page}&_limit=8&_sort=${dropdownType.sort === "Sort by" ? "" : "created_at"}&_order=${dropdownType
+        .sort!.slice(-3)
         .toLowerCase()}`
     ),
     fetcherGet
@@ -34,7 +34,7 @@ const NewsPage = () => {
         <div className="font-bold max-w-[1200px] w-[90%] mx-auto h-[80%]">
           <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">All News</h1>
 
-          <div className="bg-white p-4 flex gap-2 rounded-xl mt-8 items-center">
+          <div className="bg-white p-4 flex gap-2 rounded-xl mt-8 items-center shadow-md">
             <Link
               href={"/admin/news/add"}
               className="p-2 text-center bg-primaryBtn rounded-md w-32 text-white hover:opacity-95"
@@ -44,7 +44,7 @@ const NewsPage = () => {
 
             <div className="flex gap-4 w-full justify-end items-center">
               <h2 className="font-semibold text-xl">Filter</h2>
-              <Dropdown type={dropdownType.category} setDropdownType={setDropdownType}>
+              <Dropdown type={dropdownType.category!} setDropdownType={setDropdownType!}>
                 <div className="p-2 w-full flex flex-col bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] absolute rounded-lg font-medium top-[50px] right-0 z-10">
                   <p
                     className="py-2 px-2 hover:bg-gray-100"
@@ -80,7 +80,7 @@ const NewsPage = () => {
                   </p>
                 </div>
               </Dropdown>
-              <Dropdown type={dropdownType.sort} setDropdownType={setDropdownType}>
+              <Dropdown type={dropdownType.sort!} setDropdownType={setDropdownType!}>
                 <div className="p-2 w-full flex flex-col bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] absolute rounded-lg font-medium top-[50px] right-0 z-10">
                   <p
                     className="py-2 px-2 hover:bg-gray-100"

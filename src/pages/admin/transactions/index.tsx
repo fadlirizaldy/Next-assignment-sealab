@@ -14,7 +14,7 @@ const TransactionsPage = () => {
     <AdminLayout>
       <div className="flex justify-center my-14 h-full">
         <div className="font-bold max-w-[1200px] w-[90%] mx-auto h-[80%]">
-          <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">All Subscriptions</h1>
+          <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">All Transactions</h1>
 
           <table className="mt-7 w-full text-left rtl:text-right text-secondaryText dark:text-gray-400">
             <thead className="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -47,8 +47,8 @@ const TransactionsPage = () => {
                   <th className=" py-5 truncate px-6">
                     {item.user_id.length > 20 ? item.user_id.slice(0, 20) + "..." : item.user_id}
                   </th>
-                  <td className="px-6 py-5">
-                    <span className={`p-2 rounded-lg ${item.status === "process" ? "bg-blue-300" : "bg-green-400"}`}>
+                  <td className="px-6 py-5 text-white">
+                    <span className={`p-2 rounded-lg ${item.status === "process" ? "bg-blue-500" : "bg-green-600"}`}>
                       {item.status}
                     </span>
                   </td>
@@ -65,7 +65,6 @@ const TransactionsPage = () => {
                           router.push(`/admin/news/edit/${item.id}`);
                         }}
                       />
-                      <Icon icon="ph:trash-bold" className="text-dangerText" width="24" height="24" />
                     </div>
                   </td>
                 </tr>

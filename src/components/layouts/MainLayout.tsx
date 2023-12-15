@@ -3,8 +3,6 @@ import Navbar from "../Navbar";
 import useCookie from "@/utils/hooks";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  // const [cookie] = useCookie("token", "");
-  // console.log(cookie);
   return (
     <div>
       <Navbar />

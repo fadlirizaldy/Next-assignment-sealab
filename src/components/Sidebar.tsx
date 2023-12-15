@@ -51,7 +51,7 @@ const Sidebar = () => {
           <h2 className="font-medium text-xl">Transactions</h2>
         </Link>
         <Link
-          href={"/admin/users"}
+          href={"/admin/subscriptions"}
           className={`px-8 py-5 flex gap-5 items-center hover:bg-primary transition-all ${
             pathname.includes("/users") ? "bg-primary" : ""
           }`}
