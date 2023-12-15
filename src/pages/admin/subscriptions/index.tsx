@@ -99,7 +99,7 @@ const SubscriptionsPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {data?.map((item: any) => (
+                {data?.map((item: UserType) => (
                   <tr
                     className="max-h-32 odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                     key={item.id}

@@ -418,7 +418,7 @@
       "id": "6635d7da-b290-4ff4-8924-18c9a71135c5",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "transaction_id": "88cc3ba4-9667-11ee-b9d1-0242ac120002",
-      "type": 1,
+      "type": "rookie",
       "transaction_date": "2023-11-02",
       "total_paid": 200000,
       "status": "process"
@@ -427,10 +427,37 @@
       "id": "c629a515-dc12-4a5d-8299-6b507489c581",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "transaction_id": "4be282c4-9668-11ee-b9d1-0242ac120002",
-      "type": 2,
+      "type": "amateur",
       "transaction_date": "2023-09-14",
       "total_paid": 120000,
       "status": "completed"
+    },
+    {
+      "id": "b889a515-d9l0-4a5d-8299-6b507489c581",
+      "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
+      "transaction_id": "4be282c4-9668-11ee-b9d1-0242ac120002",
+      "type": "pro",
+      "transaction_date": "2023-09-14",
+      "total_paid": 290000,
+      "status": "canceled"
+    },
+    {
+      "id": "koe098jn-d9l0-4a5d-8299-6b507489c581",
+      "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
+      "transaction_id": "4be282c4-9668-11ee-b9d1-0242ac120002",
+      "type": "pro",
+      "transaction_date": "2023-09-14",
+      "total_paid": 290000,
+      "status": "process"
+    },
+    {
+      "id": "moikdj22-d9l0-4a5d-8299-6b507489c581",
+      "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
+      "transaction_id": "4be282c4-9668-11ee-b9d1-0242ac120002",
+      "type": "amateur",
+      "transaction_date": "2023-09-14",
+      "total_paid": 290000,
+      "status": "process"
     }
   ]
 }

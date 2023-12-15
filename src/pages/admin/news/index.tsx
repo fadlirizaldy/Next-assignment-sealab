@@ -9,7 +9,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import useSWR from "swr";
 
-export type DropdownFilterType = { category?: string; sort?: string; plan?: string };
+export type DropdownFilterType = { category?: string; sort?: string; plan?: string; statusTransaction?: string };
 
 const NewsPage = () => {
   const [searchVal, setSearchVal] = useState("");

@@ -6,7 +6,7 @@ export type UserType = {
   like: string[];
   plan: string;
   imgUrl: string;
-  expired_subs: Date;
+  expired_subs: string;
   role: string;
   referral_code: string;
 };
@@ -28,7 +28,7 @@ export type TransactionType = {
   user_id: string;
   transactions_id: string;
   type: number;
-  transactions_date: Date;
+  transaction_date: string;
   total_paid: number;
   status: string;
 };

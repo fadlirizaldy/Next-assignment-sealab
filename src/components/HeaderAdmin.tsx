@@ -1,19 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import useAuthStore from "./stores/userZustand";
+import { fetcherGet } from "@/services/fetcher/fetcher";
+import { baseUrl } from "@/services/base";
 
 const HeaderAdmin = () => {
   const router = useRouter();
   const [showDropdown, setShowDropdown] = useState(false);
 
+  const token = Cookies.get("token");
+
+  const setAuthed = useAuthStore((state) => state.setIsLoggedIn);
+  const setUser = useAuthStore((state) => state.setUser);
   const user = useAuthStore((state) => state.user);
+
+  useEffect(() => {
+    if (token) {
+      fetcherGet(baseUrl(`/users/${token}`)).then((data) => {
+        setUser(data);
+      });
+      setAuthed(true);
+    }
+  }, [setAuthed, token]);
 
   return (
     <div className="w-full px-10 py-4 bg-primary shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]">
       <div className="flex justify-end relative">
         <img
-          // src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
           src={user?.imgUrl}
           alt=""
           className="object-cover w-12 h-12 rounded-full cursor-pointer"

@@ -53,7 +53,7 @@ const Sidebar = () => {
         <Link
           href={"/admin/subscriptions"}
           className={`px-8 py-5 flex gap-5 items-center hover:bg-primary transition-all ${
-            pathname.includes("/users") ? "bg-primary" : ""
+            pathname.includes("/subscriptions") ? "bg-primary" : ""
           }`}
         >
           <Icon icon="mdi:user" className="text-white" width="24" height="24" />

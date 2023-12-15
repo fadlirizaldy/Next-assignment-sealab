@@ -67,7 +67,11 @@ const login = () => {
 
     setTimeout(() => {
       setLoading(false);
-      router.replace("/");
+      if (responseGetLogin[0].role === "admin") {
+        router.replace("/admin/");
+      } else {
+        router.replace("/");
+      }
     }, 1000);
   };
 
