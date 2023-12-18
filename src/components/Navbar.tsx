@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
-import useAuthStore from "./stores/userZustand";
+import useAuthStore from "../stores/userZustand";
 import { fetcherGet } from "@/services/fetcher/fetcher";
 import { baseUrl } from "@/services/base";
 
