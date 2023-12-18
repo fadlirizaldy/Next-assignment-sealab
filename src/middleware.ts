@@ -4,6 +4,11 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
   const role = request.cookies.get("role")?.value;
 
+  console.log(request.nextUrl.pathname);
+  if (request.nextUrl.pathname === "/") {
+    console.log("heheh");
+    // return NextResponse.redirect(request.nextUrl.origin);
+  }
   if (request.nextUrl.pathname === "/auth") {
     return NextResponse.redirect(request.nextUrl.origin + "/auth/login");
   }

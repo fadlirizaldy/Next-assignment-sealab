@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full bg-primary text-white px-10 py-5">
-      <div className="max-w-[1400px] w-[90%] mx-auto flex justify-between items-center">
+      <div className="max-w-[1200px] w-[90%] mx-auto flex justify-between items-center">
         <Link href={"/"} className="font-semibold text-3xl">
           PixelNews
         </Link>

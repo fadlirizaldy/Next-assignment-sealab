@@ -96,7 +96,7 @@ const dashboard = () => {
               <YAxis dataKey="count" />
               <Tooltip />
               <Legend />
-              <Bar label={true} dataKey="count" fill="#1A4649" className="text-white" />
+              <Bar label={true} dataKey="count" fill="#1A4649" />
             </BarChart>
           </div>
         </div>
