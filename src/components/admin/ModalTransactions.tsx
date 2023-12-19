@@ -22,7 +22,9 @@ const ModalTransactions = ({
     if (choosen === "reject") {
       await fetcherPatch(baseUrl(`/transactions/${data.id}`), { ...data, status: "canceled" });
     } else {
-      await fetcherPatch(baseUrl(`/transactions/${data.id}`), { ...data, status: "completed" });
+      fetcherPatch(baseUrl(`/transactions/${data.id}`), { ...data, status: "completed" }).then((res) => {
+        fetcherPatch(baseUrl(`/users/${res.user_id}`), { plan: "premium" });
+      });
     }
 
     showToastMessage("Success proceed the transaction!");
@@ -83,7 +85,7 @@ const ModalTransactions = ({
                   <>
                     <Icon icon="ion:game-controller-sharp" color="#f2c83b" width={30} height={30} />
                     <h4 className="font-semibold text-xl">Pro Package</h4>
-                    <p>Rp550.000/6 month</p>
+                    <p>Rp1.050.000/12 month</p>
                   </>
                 )}
               </div>

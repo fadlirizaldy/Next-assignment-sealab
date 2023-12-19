@@ -18,9 +18,6 @@ const SubscriptionTransactions = () => {
 
   const { data: dataSubs, isLoading } = useSWR(baseUrl(`/plan?name=${subsTypeId}`), fetcherGet);
 
-  console.log(dataSubs);
-  console.log("User", user);
-
   const handleTransaction = async () => {
     const newTransaction = {
       id: tmpId,

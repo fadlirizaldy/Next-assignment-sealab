@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "start:db": "json-server --watch db.json --port 8080"
+    "start:db": "json-server --watch --host 10.20.191.154 db.json --port 8080"
   },
   "dependencies": {
     "@types/uuid": "^9.0.7",

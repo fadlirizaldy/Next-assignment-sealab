@@ -11,7 +11,7 @@
         1,
         2
       ],
-      "plan": "free",
+      "plan": "premium",
       "imgUrl": "https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-man-is-wearing-glasses-in-silhouette-on-a-dark-background-image_2886069.jpg",
       "expired_subs": "2023-01-05",
       "role": "admin",
@@ -28,7 +28,7 @@
         "horror"
       ],
       "imgUrl": "https://e1.pxfuel.com/desktop-wallpaper/903/679/desktop-wallpaper-97-aesthetic-best-profile-pic-for-instagram-for-boy-instagram-dp-boys.jpg",
-      "plan": "free",
+      "plan": "premium",
       "expired_subs": "2023-01-05",
       "role": "admin",
       "referral_code": "GHA99"
@@ -470,20 +470,36 @@
       "status": "process"
     },
     {
-      "id": "e53b3e8c-20c0-4927-881f-2350c5de3eb2",
-      "user_id": "26534a16-9654-11ee-b9d1-0242ac120002",
-      "type": "amateur",
-      "transaction_date": "2023-12-19T03:37:26.882Z",
-      "total_paid": 270000,
-      "status": "process"
-    },
-    {
       "id": "fb8561a0-fe71-4106-b411-265500ed293d",
       "user_id": "26534a16-9654-11ee-b9d1-0242ac120002",
       "type": "amateur",
       "transaction_date": "2023-12-19T03:44:40.890Z",
       "total_paid": 270000,
       "status": "process"
+    },
+    {
+      "id": "bc25552a-fcc5-45ed-adee-859f733cf280",
+      "user_id": "26534a16-9654-11ee-b9d1-0242ac120002",
+      "type": "rookie",
+      "transaction_date": "2023-12-19T06:45:58.502Z",
+      "total_paid": 100000,
+      "status": "process"
+    },
+    {
+      "id": "ce861b30-3b4a-4461-8624-847148f42f85",
+      "user_id": "f6fp993c-9655-11ee-b9d1-0242ac120002",
+      "type": "pro",
+      "transaction_date": "2023-12-19T07:07:39.463Z",
+      "total_paid": 1050000,
+      "status": "completed"
+    },
+    {
+      "id": "702705f8-949b-498d-aa59-37526382bc6a",
+      "user_id": "26534a16-9654-11ee-b9d1-0242ac120002",
+      "type": "rookie",
+      "transaction_date": "2023-12-19T07:40:24.385Z",
+      "total_paid": 100000,
+      "status": "completed"
     }
   ],
   "plan": [
