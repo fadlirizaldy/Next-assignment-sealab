@@ -31,7 +31,7 @@ const SubscriptionPage = () => {
         <div className="pt-10 flex flex-col items-center gap-3">
           <h2 className="text-3xl font-medium ">Price & Benefit Subscribe</h2>
           <p className="text-secondaryText">
-            Choose a subscription package as a learning investment that suits your needs.
+            Choose a subscription package as a self investment that suits your needs.
           </p>
         </div>
 
