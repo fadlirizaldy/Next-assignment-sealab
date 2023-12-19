@@ -62,7 +62,11 @@ const Navbar = () => {
                 onMouseOver={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}
               >
-                <button className="py-2 px-2 hover:bg-gray-100" disabled={!showDropdown}>
+                <button
+                  className="py-2 px-2 hover:bg-gray-100 cursor-pointer"
+                  disabled={!showDropdown}
+                  onClick={() => router.push(`/profile/${user?.id}`)}
+                >
                   Profile
                 </button>
                 <button

@@ -9,6 +9,8 @@ export type UserType = {
   expired_subs: string;
   role: string;
   referral_code: string;
+  phone: string;
+  address: string;
 };
 
 export type NewsType = {

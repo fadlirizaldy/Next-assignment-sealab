@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -31,7 +32,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col gap-2">
               <h4 className="font-medium text-2xl mb-2">Quick Links</h4>
-              <p>Admin</p>
+              <Link href={"/admin"}>Admin</Link>
               <p>About Us</p>
               <p>FAQ</p>
               <p>Contact</p>

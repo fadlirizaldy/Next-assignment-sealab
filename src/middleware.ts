@@ -4,11 +4,15 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
   const role = request.cookies.get("role")?.value;
 
+  if (request.nextUrl.pathname.startsWith("/profile") && !token) {
+    return NextResponse.redirect(request.nextUrl.origin + "/auth/login");
+  }
+
   if (
     ["/subscription/amateur", "/subscription/pro", "/subscription/rookie"].includes(request.nextUrl.pathname) &&
     !token
   ) {
-    return NextResponse.redirect(request.nextUrl.origin);
+    return NextResponse.redirect(request.nextUrl.origin + "/auth/login");
   }
 
   if (request.nextUrl.pathname === "/auth") {
@@ -31,7 +35,7 @@ export function middleware(request: NextRequest) {
 
 // tempat middleware di run
 export const config = {
-  matcher: ["/auth/:path*", "/admin/:path*"],
+  matcher: ["/auth/:path*", "/admin/:path*", "/profile/:path*", "/subscription/:path*"],
 };
 
 // ==================================

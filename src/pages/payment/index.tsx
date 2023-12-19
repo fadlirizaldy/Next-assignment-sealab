@@ -8,7 +8,7 @@ const PaymentPage = () => {
   useEffect(() => {
     // alert("paid");
     // fetcherPatch(baseUrl(`/transactions/${id}`))
-    // fetch("http://localhost:8080/plan", {
+    // fetch("http://localhost:8080/transactions", {
     //   headers: {
     //     Accept: "application/json",
     //     "Content-Type": "application/json",
@@ -16,6 +16,7 @@ const PaymentPage = () => {
     //   method: "post",
     //   body: JSON.stringify({ task: "hehe" }),
     // }).then(() => {
+    //   alert("Success");
     // });
     // fetcherPost(baseUrl("/plan"), JSON.stringify({ id: "opodpad", name: "hehe" })).then(() => {
     //   router.push("/");
