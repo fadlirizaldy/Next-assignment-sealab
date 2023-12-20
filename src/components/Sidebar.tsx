@@ -12,7 +12,7 @@ const Sidebar = () => {
     Cookies.remove("token");
     Cookies.remove("role");
 
-    router.replace("/");
+    router.reload();
   };
 
   return (
