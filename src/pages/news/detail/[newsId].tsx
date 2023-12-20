@@ -14,7 +14,6 @@ const NewsDetail = () => {
   const { newsId } = router.query;
   const { data: newsDetail, isLoading } = useSWR(baseUrl(`/news/${newsId}`), fetcherGet);
   const user = useAuthStore((state) => state.user);
-  console.log(user);
 
   useEffect(() => {
     if (newsDetail?.isPremium && user?.plan === "free") {

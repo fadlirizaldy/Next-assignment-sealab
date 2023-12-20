@@ -7,7 +7,10 @@
       "password": "fadli123",
       "phone": "085691115666",
       "address": "Jalan",
-      "like": [1, 2],
+      "like": [
+        1,
+        2
+      ],
       "plan": "free",
       "imgUrl": "https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-man-is-wearing-glasses-in-silhouette-on-a-dark-background-image_2886069.jpg",
       "expired_subs": "2023-01-05",
@@ -21,7 +24,9 @@
       "password": "fadli123",
       "phone": "085691115666",
       "address": "Jalan",
-      "like": ["horror"],
+      "like": [
+        "horror"
+      ],
       "imgUrl": "https://e1.pxfuel.com/desktop-wallpaper/903/679/desktop-wallpaper-97-aesthetic-best-profile-pic-for-instagram-for-boy-instagram-dp-boys.jpg",
       "plan": "free",
       "expired_subs": "2023-01-05",
@@ -35,7 +40,9 @@
       "password": "fadli123",
       "phone": "08976215666",
       "address": "Jalan",
-      "like": ["horror"],
+      "like": [
+        "horror"
+      ],
       "imgUrl": "https://e1.pxfuel.com/desktop-wallpaper/903/679/desktop-wallpaper-97-aesthetic-best-profile-pic-for-instagram-for-boy-instagram-dp-boys.jpg",
       "plan": "premium",
       "expired_subs": "2023-01-05",
@@ -156,9 +163,9 @@
       "like": 150,
       "share": 0,
       "img": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/12/baldur.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5",
-      "category": "adventure",
-      "created_at": "2023-10-01",
-      "updated_at": "2023-11-04"
+      "category": "Role-playing (RPG)",
+      "created_at": "2023-10-01T05:04:46.665Z",
+      "updated_at": "2023-11-04T05:04:46.665Z"
     },
     {
       "id": "4ad45414-9660-11ee-b9d1-0242ac120002",
@@ -168,9 +175,9 @@
       "like": 155,
       "share": 0,
       "img": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/12/the-walking-dead-twd-game-shutting-down-betrayal.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5",
-      "category": "horror",
-      "created_at": "2023-10-01",
-      "updated_at": "2023-11-04"
+      "category": "Shooters (FPS and TPS)",
+      "created_at": "2023-10-01T05:04:46.665Z",
+      "updated_at": "2023-11-04T05:04:46.665Z"
     },
     {
       "title": "The Thaumaturge: Meet Protagonist Wiktor",
@@ -181,248 +188,248 @@
       "id": "PO360b78-32ec-4d8a-b757-270298c14da2",
       "like": 0,
       "share": 0,
-      "created_at": "12/13/2023, 12:14:55 PM",
-      "updated_at": "12/14/2023, 4:22:28 PM"
+      "created_at": "2023-07-24T05:04:46.665Z",
+      "updated_at": "2023-07-24T05:04:46.665Z"
     },
     {
       "id": "22902638-fe30-4220-8074-67b357f0c659",
-      "title": "Full-thickness skin graft to other sites",
+      "title": "Full-thickness skin graft to other sites edited",
       "description": "Alteration of Upper Jaw with Autologous Tissue Substitute, Percutaneous Endoscopic Approach",
-      "like": 24,
+      "like": 0,
       "share": 0,
-      "category": "Drama",
+      "category": "Simulation and sports",
       "isPremium": true,
-      "img": "http://dummyimage.com/189x100.png/dddddd/000000",
-      "created_at": "5/14/2023",
-      "updated_at": "5/13/2023"
+      "img": "",
+      "created_at": "2023-05-05T05:04:46.665Z",
+      "updated_at": "2023-12-20T08:42:18.640Z"
     },
     {
       "id": "cab01479-1c31-4cae-84f3-70c8cc75748f",
       "title": "Other plastic repair of palate",
       "description": "Replacement of Right Internal Mammary Artery with Synthetic Substitute, Open Approach",
       "like": 76,
-      "share": 0,
-      "category": "Comedy",
+      "share": 2,
+      "category": "Puzzlers and party games",
       "isPremium": true,
       "img": "http://dummyimage.com/122x100.png/dddddd/000000",
-      "created_at": "1/29/2023",
-      "updated_at": "7/12/2023"
+      "created_at": "2023-06-01T05:04:46.665Z",
+      "updated_at": "2023-12-01T05:04:46.665Z"
     },
     {
       "id": "76f44bbb-1424-412a-9ac5-90a766f699eb",
       "title": "Injection or infusion of cancer chemotherapeutic substance",
       "description": "Supplement Right Lower Extremity Lymphatic with Nonautologous Tissue Substitute, Percutaneous Endoscopic Approach",
-      "like": "37-077-2282",
+      "like": 16,
       "share": 0,
-      "category": "Adventure|Fantasy|IMAX",
+      "category": "Role-playing (RPG)",
       "isPremium": false,
       "img": "http://dummyimage.com/126x100.png/dddddd/000000",
-      "created_at": "6/16/2023",
-      "updated_at": "6/5/2023"
+      "created_at": "2023-12-01T05:04:46.665Z",
+      "updated_at": "2023-12-13T05:04:46.665Z"
     },
     {
       "id": "70cc56d1-0201-43e3-a5b4-36f28604b699",
       "title": "Clipping of aneurysm",
       "description": "Repair Skull, Percutaneous Approach",
-      "like": "23-803-7397",
-      "share": 0,
-      "category": "Documentary",
+      "like": 1,
+      "share": 10,
+      "category": "Shooters (FPS and TPS)",
       "isPremium": false,
       "img": "http://dummyimage.com/211x100.png/ff4444/ffffff",
-      "created_at": "6/8/2023",
-      "updated_at": "9/8/2023"
+      "created_at": "2023-01-16T05:04:46.665Z",
+      "updated_at": "2023-01-19T05:04:46.665Z"
     },
     {
       "id": "e82d73fe-79f1-45eb-bbd7-ffa127d8f9cd",
       "title": "Biopsy of chest wall",
       "description": "Extirpation of Matter from Large Intestine, Percutaneous Approach",
-      "like": "21-308-6084",
+      "like": 4,
       "share": 0,
-      "category": "Drama",
+      "category": "Simulation and sports",
       "isPremium": false,
       "img": "http://dummyimage.com/162x100.png/ff4444/ffffff",
-      "created_at": "1/23/2023",
-      "updated_at": "11/2/2023"
+      "created_at": "2023-12-01T05:04:46.665Z",
+      "updated_at": "2023-12-01T05:04:46.665Z"
     },
     {
       "id": "45c74c0f-d525-4cc7-9560-5c053c4812e4",
       "title": "Other external fistulization of esophagus",
       "description": "Revision of Internal Fixation Device in Left Knee Joint, Percutaneous Endoscopic Approach",
-      "like": "65-788-7277",
+      "like": 4,
       "share": 0,
-      "category": "Drama|Mystery|Thriller",
+      "category": "Multiplayer online battle arena (MOBA)",
       "isPremium": false,
       "img": "http://dummyimage.com/106x100.png/ff4444/ffffff",
-      "created_at": "1/26/2023",
-      "updated_at": "7/31/2023"
+      "created_at": "2023-12-01T05:04:46.665Z",
+      "updated_at": "2023-12-08T05:04:46.665Z"
     },
     {
       "id": "e7d44a4b-7d8b-4d13-a0a3-fc587205f7d3",
       "title": "Excision of preauricular sinus",
       "description": "Revision of Autologous Tissue Substitute in Lower Back, External Approach",
-      "like": "82-768-6594",
+      "like": 3,
       "share": 0,
-      "category": "Comedy|Musical|Romance",
+      "category": "Puzzlers and party games",
       "isPremium": false,
       "img": "http://dummyimage.com/200x100.png/5fa2dd/ffffff",
-      "created_at": "8/8/2023",
-      "updated_at": "1/28/2023"
+      "created_at": "2022-12-01T05:04:46.665Z",
+      "updated_at": "2023-12-04T05:04:46.665Z"
     },
     {
       "id": "79efd4d7-e3a5-45c4-b0c7-b7eef336f9e6",
       "title": "Bone graft, other bones",
       "description": "Insertion of Other Device into Lower Back, Open Approach",
-      "like": "77-872-4485",
-      "share": 0,
-      "category": "Documentary|Mystery",
+      "like": 6,
+      "share": 5,
+      "category": "Simulation and sports",
       "isPremium": true,
       "img": "http://dummyimage.com/165x100.png/dddddd/000000",
-      "created_at": "10/9/2023",
-      "updated_at": "12/8/2023"
+      "created_at": "2023-02-01T05:04:46.665Z",
+      "updated_at": "2023-02-09T05:04:46.665Z"
     },
     {
       "id": "c3f70848-c9a5-4afa-8597-9726b72a9528",
       "title": "Alcohol detoxification",
       "description": "Supplement Left External Jugular Vein with Synthetic Substitute, Open Approach",
-      "like": "40-742-9257",
+      "like": 5,
       "share": 0,
-      "category": "Comedy|Mystery",
+      "category": "Puzzlers and party games",
       "isPremium": true,
       "img": "http://dummyimage.com/248x100.png/cc0000/ffffff",
-      "created_at": "12/1/2023",
-      "updated_at": "12/31/2022"
+      "created_at": "2023-12-01T05:04:46.665Z",
+      "updated_at": "2023-12-19T05:04:46.665Z"
     },
     {
       "id": "300b9f48-3049-4a05-91d7-362fc53688ef",
       "title": "Closed reduction of fracture without internal fixation, other specified bone",
       "description": "Magnetic Resonance Imaging (MRI) of Liver and Spleen using Other Contrast, Unenhanced and Enhanced",
-      "like": "61-088-3728",
+      "like": 2,
       "share": 0,
-      "category": "Crime|Drama|Thriller",
+      "category": "Role-playing (RPG)",
       "isPremium": true,
       "img": "http://dummyimage.com/153x100.png/5fa2dd/ffffff",
-      "created_at": "7/19/2023",
-      "updated_at": "4/14/2023"
+      "created_at": "2023-12-01T05:04:46.665Z",
+      "updated_at": "2023-12-01T05:04:46.665Z"
     },
     {
       "id": "d017b8bf-30b8-4bd7-9a53-48f49964f9c6",
       "title": "Retroperitoneal pneumogram",
       "description": "Insertion of Tissue Expander into Posterior Neck Subcutaneous Tissue and Fascia, Open Approach",
-      "like": "45-529-7260",
+      "like": 6,
       "share": 0,
-      "category": "Sci-Fi",
+      "category": "Shooters (FPS and TPS)",
       "isPremium": true,
       "img": "http://dummyimage.com/203x100.png/cc0000/ffffff",
-      "created_at": "8/12/2023",
-      "updated_at": "4/14/2023"
+      "created_at": "2023-07-01T05:04:46.665Z",
+      "updated_at": "2023-12-01T05:04:46.665Z"
     },
     {
       "id": "87f08f9a-150f-44d0-8dcf-e10a1a666edc",
       "title": "Other repair of urethra",
       "description": "Drainage of Lower Esophagus, Percutaneous Approach, Diagnostic",
-      "like": "82-623-0452",
-      "share": 0,
-      "category": "Comedy|Drama",
+      "like": 8,
+      "share": 9,
+      "category": "Simulation and sports",
       "isPremium": true,
       "img": "http://dummyimage.com/151x100.png/ff4444/ffffff",
-      "created_at": "2/26/2023",
-      "updated_at": "10/5/2023"
+      "created_at": "2023-08-01T05:04:46.665Z",
+      "updated_at": "2023-08-15T05:04:46.665Z"
     },
     {
       "id": "db9d6440-78ff-4b4e-ac18-a3dad551bea8",
       "title": "Insertion of other vaginal pessary",
       "description": "Supplement Left Carpal Joint with Nonautologous Tissue Substitute, Open Approach",
-      "like": "32-390-5567",
-      "share": 0,
-      "category": "Crime|Drama|Romance",
+      "like": 6,
+      "share": 6,
+      "category": "Multiplayer online battle arena (MOBA)",
       "isPremium": true,
       "img": "http://dummyimage.com/221x100.png/ff4444/ffffff",
-      "created_at": "8/8/2023",
-      "updated_at": "11/9/2023"
+      "created_at": "2023-05-01T05:04:46.665Z",
+      "updated_at": "2023-05-18T05:04:46.665Z"
     },
     {
       "id": "17d65026-4101-44c6-bed7-6a40b53f0900",
       "title": "Laparoscopic cecectomy",
       "description": "Removal of Autologous Tissue Substitute from Right Carpal Joint, Percutaneous Approach",
-      "like": "00-636-8278",
+      "like": 8,
       "share": 0,
-      "category": "Drama|Horror",
+      "category": "Role-playing (RPG)",
       "isPremium": false,
       "img": "http://dummyimage.com/101x100.png/dddddd/000000",
-      "created_at": "10/20/2023",
-      "updated_at": "8/13/2023"
+      "created_at": "2023-10-01T05:04:46.665Z",
+      "updated_at": "2023-10-04T05:04:46.665Z"
     },
     {
       "id": "e01cd11c-d45f-4e26-a4c4-b0f2ca703223",
       "title": "Thumb reattachment",
       "description": "Alteration of Left Buttock with Synthetic Substitute, Open Approach",
-      "like": "38-541-8550",
+      "like": 10,
       "share": 0,
-      "category": "Drama|Fantasy|Romance",
+      "category": "Puzzlers and party games",
       "isPremium": false,
       "img": "http://dummyimage.com/177x100.png/cc0000/ffffff",
-      "created_at": "4/5/2023",
-      "updated_at": "5/4/2023"
+      "created_at": "2023-06-01T05:04:46.665Z",
+      "updated_at": "2023-09-01T05:04:46.665Z"
     },
     {
       "id": "ec675ae2-785b-4587-b5d0-83da2c6a2d8a",
       "title": "Other incision of bone without division, tarsals and metatarsals",
       "description": "Insertion of Infusion Device into Left Hand, Percutaneous Approach",
-      "like": "12-958-4854",
-      "share": 0,
-      "category": "Comedy|Horror|Thriller",
+      "like": 0,
+      "share": 4,
+      "category": "Shooters (FPS and TPS)",
       "isPremium": true,
       "img": "http://dummyimage.com/205x100.png/ff4444/ffffff",
-      "created_at": "12/31/2022",
-      "updated_at": "8/19/2023"
+      "created_at": "2023-12-09T05:04:46.665Z",
+      "updated_at": "2023-12-28T05:04:46.665Z"
     },
     {
       "id": "5aae8cb7-6a30-4e76-bd53-636efe691060",
       "title": "Incision of cornea",
       "description": "Removal of Brace on Right Upper Extremity",
-      "like": "29-685-4731",
-      "share": 0,
-      "category": "Adventure",
+      "like": 29,
+      "share": 15,
+      "category": "Puzzlers and party games",
       "isPremium": true,
       "img": "http://dummyimage.com/193x100.png/dddddd/000000",
-      "created_at": "3/13/2023",
-      "updated_at": "3/13/2023"
+      "created_at": "2023-01-20T05:04:46.665Z",
+      "updated_at": "2023-01-23T05:04:46.665Z"
     },
     {
       "id": "e58da79d-16a4-4554-af34-eb3da0d34ca1",
       "title": "Disarticulation of shoulder",
       "description": "Dilation of Coronary Artery, Two Arteries, Bifurcation, with Four or More Drug-eluting Intraluminal Devices, Percutaneous Endoscopic Approach",
-      "like": "21-609-3890",
-      "share": 0,
-      "category": "Drama|Romance|War",
+      "like": 2,
+      "share": 3,
+      "category": "Role-playing (RPG)",
       "isPremium": false,
       "img": "http://dummyimage.com/163x100.png/cc0000/ffffff",
-      "created_at": "1/31/2023",
-      "updated_at": "11/4/2023"
+      "created_at": "2023-10-10T05:04:46.665Z",
+      "updated_at": "2023-10-12T05:04:46.665Z"
     },
     {
       "id": "773c3d82-ea08-4685-b069-0b92318d0ede",
       "title": "Anastomosis of gallbladder to pancreas",
       "description": "Bypass Right Atrium to Left Atrium, Open Approach",
-      "like": "02-790-7217",
+      "like": 2,
       "share": 0,
-      "category": "Action|Crime|Drama|Thriller|War",
+      "category": "Shooters (FPS and TPS)",
       "isPremium": true,
       "img": "http://dummyimage.com/149x100.png/cc0000/ffffff",
-      "created_at": "10/13/2023",
-      "updated_at": "3/6/2023"
+      "created_at": "2023-12-03T05:04:46.665Z",
+      "updated_at": "2023-12-05T05:04:46.665Z"
     },
     {
       "title": "Test 1",
       "description": "HEHE",
       "isPremium": false,
       "img": "http://res.cloudinary.com/db5fjn9m2/image/upload/v1702461829/Screenshot_from_2023-12-12_10-22-31_plgtpb.png",
-      "category": "Role-playing (RPG)",
+      "category": "Multiplayer online battle arena (MOBA)",
       "id": "07411875-cb60-40bf-8c39-ca9d9a50e793",
       "like": 0,
       "share": 0,
-      "created_at": "12/13/2023, 5:03:49 PM",
-      "updated_at": "12/13/2023, 5:03:49 PM"
+      "created_at": "2023-12-01T05:04:46.665Z",
+      "updated_at": "2023-12-05T05:04:46.665Z"
     },
     {
       "title": "fffffffffffffffffffffff",
@@ -433,8 +440,30 @@
       "id": "26ba0b12-6b00-49a3-a502-4b73b123f989",
       "like": 0,
       "share": 0,
-      "created_at": "12/14/2023, 4:21:14 PM",
-      "updated_at": "12/14/2023, 4:21:14 PM"
+      "created_at": "2023-09-01T05:04:46.665Z",
+      "updated_at": "2023-09-11T05:04:46.665Z"
+    },
+    {
+      "title": "Tes input 2 edited",
+      "description": "TES COYTES COYTES COYTES COYTES COYTES COYTES COYTES COY",
+      "isPremium": true,
+      "img": "http://res.cloudinary.com/db5fjn9m2/image/upload/v1703063934/design_admin_4_zoj5ag.jpg",
+      "category": "Role-playing (RPG)",
+      "id": "4570c162-937a-45e4-b117-b0fd4597c15f",
+      "like": 0,
+      "created_at": "2023-12-20T09:06:16.057Z",
+      "updated_at": "2023-12-20T09:18:55.564Z"
+    },
+    {
+      "title": "coba loader",
+      "description": "huduhdu",
+      "isPremium": false,
+      "img": "http://res.cloudinary.com/db5fjn9m2/image/upload/v1703063778/Screenshot_from_2023-12-12_11-02-24_kjzyxj.png",
+      "category": "Role-playing (RPG)",
+      "id": "ec9ec716-622d-4a38-ba76-613d64cad35a",
+      "like": 0,
+      "created_at": "2023-12-20T09:16:18.749Z",
+      "updated_at": "2023-12-20T09:16:18.749Z"
     }
   ],
   "transactions": [
@@ -442,7 +471,7 @@
       "id": "6635d7da-b290-4ff4-8924-18c9a71135c5",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "type": "rookie",
-      "transaction_date": "2023-11-02",
+      "transaction_date": "2023-11-02T05:04:46.665Z",
       "total_paid": 200000,
       "status": "completed"
     },
@@ -450,7 +479,7 @@
       "id": "c629a515-dc12-4a5d-8299-6b507489c581",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "type": "amateur",
-      "transaction_date": "2023-09-14",
+      "transaction_date": "2023-09-14T05:04:46.665Z",
       "total_paid": 120000,
       "status": "completed"
     },
@@ -458,7 +487,7 @@
       "id": "b889a515-d9l0-4a5d-8299-6b507489c581",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "type": "pro",
-      "transaction_date": "2023-09-14",
+      "transaction_date": "2023-09-14T05:04:46.665Z",
       "total_paid": 290000,
       "status": "canceled"
     },
@@ -466,7 +495,7 @@
       "id": "koe098jn-d9l0-4a5d-8299-6b507489c581",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "type": "pro",
-      "transaction_date": "2023-09-14",
+      "transaction_date": "2023-09-14T05:04:46.665Z",
       "total_paid": 290000,
       "status": "completed"
     },
@@ -474,7 +503,7 @@
       "id": "moikdj22-d9l0-4a5d-8299-6b507489c581",
       "user_id": "e5f8093c-9655-11ee-b9d1-0242ac120002",
       "type": "amateur",
-      "transaction_date": "2023-09-14",
+      "transaction_date": "2023-09-14T12:23:48.890Z",
       "total_paid": 290000,
       "status": "canceled"
     },

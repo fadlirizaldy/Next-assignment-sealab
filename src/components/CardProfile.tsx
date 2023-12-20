@@ -3,8 +3,8 @@ import React from "react";
 
 const CardProfile = ({ title, dataProfile }: { title: string; dataProfile: UserType }) => {
   return (
-    <div className="rounded-xl border border-slate-400 w-3/5 bg-white">
-      <h2 className="font-semibold text-2xl px-4 py-3">Profile User</h2>
+    <div className="rounded-xl border border-slate-400 w-3/5 bg-white shadow-md">
+      <h2 className="font-semibold text-2xl px-4 py-3">Profile {title}</h2>
       <hr className="h-px bg-[#BABABA]" />
 
       <div className="px-8 py-5">
@@ -59,6 +59,18 @@ const CardProfile = ({ title, dataProfile }: { title: string; dataProfile: UserT
           className="rounded-[8px] border border-gray-400 bg-[#dddede] focus:outline-primaryBtn px-3 w-1/4 py-2 mb-4"
           value={dataProfile?.referral_code}
         />
+      </div>
+
+      <hr className="h-px bg-[#BABABA] mt-3" />
+      <div className="py-4 px-8 w-[86%]">
+        <label htmlFor="" className="font-medium text-xl">
+          Plan
+        </label>
+        <h2 className="capitalize  mb-4 w-full py-2">{dataProfile?.plan}</h2>
+        <label htmlFor="" className="font-medium text-xl">
+          Valid until
+        </label>
+        <h2 className="capitalize  mb-4 w-full py-2">{dataProfile?.expired_subs ? dataProfile?.expired_subs : "-"}</h2>
       </div>
     </div>
   );

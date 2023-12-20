@@ -8,11 +8,13 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import AdminLayout from "@/components/layouts/AdminLayout";
 import Link from "next/link";
 import { defaultNewsData } from "../add";
+import { BeatLoader } from "react-spinners";
 
 const EditNewsPage = () => {
   const router = useRouter();
   const { editNewsId: id } = router.query;
   const [dataNews, setDataNews] = useState(defaultNewsData);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetcherGet(baseUrl(`/news/${id}`))
@@ -59,6 +61,8 @@ const EditNewsPage = () => {
 
   const handleSubmitData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
+
     if (!validateNews()) return;
     let urlTmp = "";
 
@@ -76,10 +80,12 @@ const EditNewsPage = () => {
       id: uuidv4(),
       like: 0,
       img: urlTmp,
-      updated_at: new Date().toLocaleString(),
+      updated_at: new Date(),
     };
 
     await fetcherPatch(baseUrl(`/news/${id}`), newData);
+    setLoading(false);
+
     router.push("/admin/news");
   };
 
@@ -90,7 +96,7 @@ const EditNewsPage = () => {
       </Link>
       <div className="flex justify-center my-16 h-full">
         <div className="max-w-[1200px] w-[50%] mx-auto h-[80%]">
-          <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">Add News</h1>
+          <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">Edit News</h1>
 
           <form className="mt-5 flex flex-col gap-4" onSubmit={(e) => handleSubmitData(e)}>
             <div className="flex flex-col">
@@ -202,8 +208,9 @@ const EditNewsPage = () => {
               <button
                 type="submit"
                 className="px-6 py-2 text-center text-xl bg-primaryBtn rounded-lg text-white hover:opacity-95"
+                disabled={loading}
               >
-                Submit
+                {loading ? <BeatLoader color="#fff" /> : "Edit"}
               </button>
             </div>
           </form>

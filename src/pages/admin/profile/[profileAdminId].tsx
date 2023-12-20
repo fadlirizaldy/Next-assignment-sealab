@@ -13,7 +13,7 @@ const ProfileAdminPage = () => {
 
   return (
     <AdminLayout>
-      <div className="flex justify-center pt-14">
+      <div className="flex justify-center py-14">
         <CardProfile title={"Admin"} dataProfile={dataProfile} />
       </div>
     </AdminLayout>

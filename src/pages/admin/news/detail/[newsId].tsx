@@ -25,8 +25,6 @@ const DetailPage = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(dataNews);
-
   return (
     <AdminLayout>
       <Link href={"/admin/news"} className="w-fit font-semibold text-blue-700 underline py-1 mt-4 ml-5">

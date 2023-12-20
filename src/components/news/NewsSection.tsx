@@ -48,12 +48,14 @@ const NewsSection = () => {
           onChange={(e) => setFilter((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
           value={filter?.category}
         >
-          <option value="" selected hidden>
+          <option value="" selected disabled hidden>
             Category
           </option>
-          <option value="moba">Multiplayer online battle arena (MOBA)</option>
-          <option value="fps">Shooters (FPS and TPS)</option>
-          <option value="rpg">Role-playing (RPG)</option>
+          <option value="Multiplayer online battle arena (MOBA)">Multiplayer online battle arena (MOBA)</option>
+          <option value="Shooters (FPS and TPS)">Shooters (FPS and TPS)</option>
+          <option value="Role-playing (RPG)">Role-playing (RPG)</option>
+          <option value="Simulation and sports">Simulation and sports</option>
+          <option value="Puzzlers and party games">Puzzlers and party games</option>
         </select>
         <select
           className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl w-3/12"

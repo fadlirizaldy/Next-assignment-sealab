@@ -8,6 +8,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 import React, { useState } from "react";
 import useSWR from "swr";
+import { DotLoader, MoonLoader, PuffLoader } from "react-spinners";
 
 export type DropdownFilterType = { category?: string; sort?: string; plan?: string; statusTransaction?: string };
 
@@ -19,11 +20,13 @@ const NewsPage = () => {
 
   const { data, isLoading } = useSWR(
     baseUrl(
-      `/news?q=${searchDebounce}&?category=${
-        dropdownType.category === "Category" ? "" : dropdownType.category!
-      }&_page=${page}&_limit=8&_sort=${dropdownType.sort === "Sort by" ? "" : "created_at"}&_order=${dropdownType
-        .sort!.slice(-3)
-        .toLowerCase()}`
+      `/news?q=${searchDebounce}${
+        dropdownType.category === "Category" ? "" : "&category=" + dropdownType.category!
+      }&_page=${page}&_limit=8${
+        dropdownType.sort === "Sort by"
+          ? ""
+          : `&_sort=created_at&_order=${dropdownType.sort!.split(" - ")[1].toLowerCase()}`
+      }`
     ),
     fetcherGet
   );
@@ -114,41 +117,54 @@ const NewsPage = () => {
             </div>
           </div>
 
-          <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
-            {isLoading ? "Loading..." : <TableNews data={data} />}
-          </div>
+          {isLoading ? (
+            <div className="mt-10 flex justify-center">
+              <PuffLoader color="#1A4649" />
+            </div>
+          ) : data?.length > 1 ? (
+            <>
+              <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
+                <TableNews data={data} />
+              </div>
 
-          <div className="flex items-center gap-1 mt-4 justify-end pr-4">
-            <Icon
-              icon="fluent:triangle-left-12-filled"
-              width={24}
-              height={24}
-              className={`text-primaryBtn ${
-                page === 1 ? "opacity-75 cursor-not-allowed" : "opacity-100 cursor-pointer"
-              }`}
-              onClick={() =>
-                setPage((prev) => {
-                  if (prev === 1) return prev;
-                  return prev - 1;
-                })
-              }
-            />
-            <h4 className="font-medium text-xl">{page}</h4>
-            <Icon
-              icon="fluent:triangle-right-12-filled"
-              width={24}
-              height={24}
-              className={`text-primaryBtn ${
-                data?.length < 8 ? "opacity-75 cursor-not-allowed" : "opacity-100 cursor-pointer"
-              }`}
-              onClick={() =>
-                setPage((prev) => {
-                  if (data?.length < 8) return prev;
-                  return prev + 1;
-                })
-              }
-            />
-          </div>
+              <div className="flex items-center gap-1 mt-4 justify-end pr-4">
+                <Icon
+                  icon="fluent:triangle-left-12-filled"
+                  width={24}
+                  height={24}
+                  className={`text-primaryBtn ${
+                    page === 1 ? "opacity-75 cursor-not-allowed" : "opacity-100 cursor-pointer"
+                  }`}
+                  onClick={() =>
+                    setPage((prev) => {
+                      if (prev === 1) return prev;
+                      return prev - 1;
+                    })
+                  }
+                />
+                <h4 className="font-medium text-xl">{page}</h4>
+                <Icon
+                  icon="fluent:triangle-right-12-filled"
+                  width={24}
+                  height={24}
+                  className={`text-primaryBtn ${
+                    data?.length < 8 ? "opacity-75 cursor-not-allowed" : "opacity-100 cursor-pointer"
+                  }`}
+                  onClick={() =>
+                    setPage((prev) => {
+                      if (data?.length < 8) return prev;
+                      return prev + 1;
+                    })
+                  }
+                />
+              </div>
+            </>
+          ) : (
+            <div className="flex flex-col items-center mt-10">
+              <img src="/no-data.png" alt="" className="w-1/3" />
+              <h2 className="font-semibold text-2xl">No Data</h2>
+            </div>
+          )}
         </div>
       </div>
     </AdminLayout>

@@ -6,6 +6,7 @@ import { baseUrl } from "@/services/base";
 import { fetcherPost } from "@/services/fetcher/fetcher";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AdminLayout from "@/components/layouts/AdminLayout";
+import { BeatLoader, PuffLoader } from "react-spinners";
 
 export const defaultNewsData = {
   title: "",
@@ -17,6 +18,7 @@ export const defaultNewsData = {
 
 const AddNewsPage = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [dataNews, setDataNews] = useState(defaultNewsData);
 
   const [error, setError] = useState(defaultNewsData);
@@ -58,6 +60,7 @@ const AddNewsPage = () => {
 
   const handleSubmitData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     if (!validateNews()) return;
     const formData = new FormData();
     formData.append("file", dataNews.img);
@@ -70,11 +73,12 @@ const AddNewsPage = () => {
       id: uuidv4(),
       like: 0,
       img: url,
-      created_at: new Date().toLocaleString(),
-      updated_at: new Date().toLocaleString(),
+      created_at: new Date(),
+      updated_at: new Date(),
     };
 
     await fetcherPost(baseUrl("/news"), newData);
+    setLoading(false);
     router.push("/admin/news");
   };
 
@@ -197,8 +201,9 @@ const AddNewsPage = () => {
               <button
                 type="submit"
                 className="px-6 py-2 text-center text-xl bg-primaryBtn rounded-lg text-white hover:opacity-95"
+                disabled={loading}
               >
-                Submit
+                {loading ? <BeatLoader color="#fff" /> : "Submit"}
               </button>
             </div>
           </form>
