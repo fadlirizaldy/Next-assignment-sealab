@@ -9,6 +9,7 @@ import { fetcherGet } from "@/services/fetcher/fetcher";
 import { NewsType } from "@/utils/types";
 import { DotLoader } from "react-spinners";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import NewsSection from "@/components/news/NewsSection";
 
 export default function Home() {
   const router = useRouter();
@@ -118,40 +119,7 @@ export default function Home() {
                 );
               })}
             </div>
-
-            <div className="mt-10">
-              <h3 className="text-black text-2xl font-semibold flex items-center gap-1 mb-3">
-                <div className="w-5 h-5 bg-primary"></div>
-                News
-              </h3>
-
-              <div className="flex items-center gap-3">
-                <select>
-                  <option>Multiplayer online battle arena (MOBA)</option>
-                  <option>Shooters (FPS and TPS)</option>
-                  <option>Role-playing (RPG)</option>
-                </select>
-                <select>
-                  <option>All</option>
-                  <option>Premium</option>
-                  <option>Free</option>
-                </select>
-                <div className="relative w-2/5">
-                  <input
-                    type="text"
-                    placeholder="Search something..."
-                    className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl w-full"
-                    // onChange={(e) => setSearchVal(e.target.value)}
-                  />
-                  <Icon
-                    icon="material-symbols:search"
-                    className="text-slate-500 absolute right-2 top-2"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-              </div>
-            </div>
+            <NewsSection />
           </div>
         )}
       </div>
