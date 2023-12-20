@@ -491,7 +491,7 @@
       "type": "amateur",
       "transaction_date": "2023-12-18T12:23:48.890Z",
       "total_paid": 270000,
-      "status": "process"
+      "status": "canceled"
     },
     {
       "id": "fb8561a0-fe71-4106-b411-265500ed293d",
@@ -499,7 +499,7 @@
       "type": "amateur",
       "transaction_date": "2023-12-19T03:44:40.890Z",
       "total_paid": 270000,
-      "status": "process"
+      "status": "completed"
     },
     {
       "id": "bc25552a-fcc5-45ed-adee-859f733cf280",
@@ -523,6 +523,14 @@
       "type": "rookie",
       "transaction_date": "2023-12-19T07:40:24.385Z",
       "total_paid": 100000,
+      "status": "completed"
+    },
+    {
+      "id": "033136c2-830f-431e-8b3a-6e42eaff7bcc",
+      "user_id": "26534a16-9654-11ee-b9d1-0242ac120002",
+      "type": "amateur",
+      "transaction_date": "2023-12-19T09:55:06.221Z",
+      "total_paid": 270000,
       "status": "completed"
     }
   ],

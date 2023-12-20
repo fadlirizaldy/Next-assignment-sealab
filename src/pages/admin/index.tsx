@@ -71,7 +71,7 @@ const dashboard = () => {
                 ) : (
                   <div className="flex items-center">
                     <h2 className="text-2xl">Rp</h2>
-                    <CountUp end={countReduce()} duration={2} className="text-2xl" />
+                    <CountUp end={countReduce()} duration={2} className="text-2xl" separator="." />
                   </div>
                 )}
               </div>

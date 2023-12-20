@@ -18,7 +18,7 @@ const PaymentPage = () => {
       }
       fetcherPatch(baseUrl(`/transactions/${paymentId}`), { status: "completed" }).then((res) => {
         fetcherPatch(baseUrl(`/users/${res.user_id}`), { plan: "premium" }).then(() => {
-          showToastMessage("Transactions complete! Redirecting");
+          showToastMessage("Transactions complete! Redirecting..");
           setTimeout(() => {
             router.replace("/");
           }, 2000);
