@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
 import ModalConfirmTransaction from "./ModalConfirmTransaction";
 import { formatNumberWithDots, showToastMessage } from "@/utils/libs";
-import { fetcherPatch } from "@/services/fetcher/fetcher";
+import { fetcherGet, fetcherPatch } from "@/services/fetcher/fetcher";
 import { baseUrl } from "@/services/base";
 import { ToastContainer } from "react-toastify";
 
@@ -23,7 +23,13 @@ const ModalTransactions = ({
       await fetcherPatch(baseUrl(`/transactions/${data.id}`), { ...data, status: "canceled" });
     } else {
       fetcherPatch(baseUrl(`/transactions/${data.id}`), { ...data, status: "completed" }).then((res) => {
-        fetcherPatch(baseUrl(`/users/${res.user_id}`), { plan: "premium" });
+        const additionDate = res.type === "pro" ? 365 : res.type === "amateur" ? 90 : 30;
+        fetcherGet(baseUrl(`/users/${res.user_id}`)).then((resGet) => {
+          const currentExpDate = resGet.expired_subs ? new Date(resGet.expired_subs) : new Date();
+          currentExpDate.setDate(currentExpDate.getDate() + additionDate);
+
+          fetcherPatch(baseUrl(`/users/${res.user_id}`), { plan: "premium", expired_subs: currentExpDate });
+        });
       });
     }
 

@@ -115,7 +115,9 @@ const SubscriptionsPage = () => {
                         {item.plan}
                       </span>
                     </td>
-                    <th className="px-6 pt-2 font-medium text-secondaryText dark:text-white">{item.expired_subs}</th>
+                    <th className="px-6 pt-2 font-medium text-secondaryText dark:text-white">
+                      {new Date(item.expired_subs).toLocaleDateString()}
+                    </th>
                     <td className="px-6 py-5">
                       {item.plan === "premium" ? (
                         <div

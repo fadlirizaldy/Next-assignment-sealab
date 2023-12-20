@@ -70,7 +70,9 @@ const CardProfile = ({ title, dataProfile }: { title: string; dataProfile: UserT
         <label htmlFor="" className="font-medium text-xl">
           Valid until
         </label>
-        <h2 className="capitalize  mb-4 w-full py-2">{dataProfile?.expired_subs ? dataProfile?.expired_subs : "-"}</h2>
+        <h2 className="capitalize  mb-4 w-full py-2">
+          {dataProfile?.expired_subs ? new Date(dataProfile?.expired_subs).toDateString() : "-"}
+        </h2>
       </div>
     </div>
   );

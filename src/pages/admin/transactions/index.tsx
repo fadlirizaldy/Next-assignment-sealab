@@ -123,7 +123,7 @@ const TransactionsPage = () => {
                         <span className={`p-2 rounded-lg ${filerColorType(item.status)}`}>{item.status}</span>
                       </td>
                       <th className="px-6 pt-2 font-medium text-secondaryText dark:text-white">
-                        {item.transaction_date}
+                        {new Date(item.transaction_date).toDateString()}
                       </th>
                       <td className="px-6 py-5">
                         <div
