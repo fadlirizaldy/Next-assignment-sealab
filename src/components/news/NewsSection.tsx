@@ -122,8 +122,9 @@ const NewsSection = () => {
           ) : null}
         </>
       ) : (
-        <div className="mt-5 flex justify-center">
-          <h3 className="font-medium text-xl">No data</h3>
+        <div className="flex flex-col items-center mt-5">
+          <img src="/no-data.png" alt="" className="w-1/3" />
+          <h2 className="font-semibold text-2xl">No Data</h2>
         </div>
       )}
     </div>

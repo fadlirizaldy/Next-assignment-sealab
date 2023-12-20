@@ -7,7 +7,7 @@ import useSWR from "swr";
 import { baseUrl } from "@/services/base";
 import { fetcherGet } from "@/services/fetcher/fetcher";
 import { NewsType } from "@/utils/types";
-import { DotLoader } from "react-spinners";
+import { DotLoader, HashLoader } from "react-spinners";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import NewsSection from "@/components/news/NewsSection";
 
@@ -19,12 +19,16 @@ export default function Home() {
     <MainLayout>
       <div className="max-w-[1200px] w-[90%] mx-auto">
         {isLoading ? (
-          <DotLoader />
+          <div className="pt-10 flex justify-center">
+            <HashLoader />
+          </div>
         ) : (
           <div className="pt-10">
-            <h2 className="font-semibold text-3xl mb-4 pb-2 border-b border-slate-600 w-fit">Top Liked News</h2>
+            <h2 className="font-semibold text-3xl mb-4 pb-2 border-b border-slate-600 w-fit animate-fade-up animate-delay-300 animate-once">
+              Top Liked News
+            </h2>
 
-            <div className="grid gap-5 grid-cols-4 grid-rows-2">
+            <div className="grid gap-5 grid-cols-4 grid-rows-2 animate-fade-up animate-delay-500 animate-once">
               <div
                 className="w-full cursor-pointer col-span-2 row-span-full"
                 onClick={() => router.push(`/news/detail/${dataNews[0]?.id}`)}
@@ -82,7 +86,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-10">
+            <div className="mt-10 animate-fade-up animate-delay-500 animate-once">
               <h3 className="text-black text-2xl font-semibold flex items-center gap-1 mb-3">
                 <div className="w-5 h-5 bg-primary"></div>
                 Latest

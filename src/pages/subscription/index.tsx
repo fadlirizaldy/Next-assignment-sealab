@@ -28,14 +28,14 @@ const SubscriptionPage = () => {
   return (
     <MainLayout>
       <div className="max-w-[1200px] w-[90%] mx-auto">
-        <div className="pt-10 flex flex-col items-center gap-3">
+        <div className="pt-10 flex flex-col items-center gap-3 animate-fade-up animate-delay-200 animate-once">
           <h2 className="text-3xl font-medium ">Price & Benefit Subscribe</h2>
           <p className="text-secondaryText">
             Choose a subscription package as a self investment that suits your needs.
           </p>
         </div>
 
-        <section className="mt-5 p-6 bg-white rounded-md border border-gray-400 shadow-md">
+        <section className="mt-5 p-6 bg-white rounded-md border border-gray-400 shadow-md animate-fade-up animate-delay-500 animate-once">
           <div className="grid grid-cols-2 gap-5">
             {dataPlan?.map((data: PlanType, idx: number) => (
               <CardSubscription key={idx}>

@@ -37,7 +37,7 @@ const NewsDetail = () => {
             <div className="flex mb-4 gap-4">
               <p className="text-slate-400 font-medium capitalize">{newsDetail?.category}</p>
               <p className="text-slate-400 font-medium">|</p>
-              <p className="text-slate-400 font-medium">{newsDetail?.created_at}</p>
+              <p className="text-slate-400 font-medium">{new Date(newsDetail?.created_at).toDateString()}</p>
             </div>
 
             <img src={newsDetail?.img ? newsDetail?.img : ""} alt="" className="w-full object-cover max-h-[421px]" />
@@ -56,13 +56,13 @@ const NewsDetail = () => {
       {newsDetail?.isPremium && user?.plan === "free" ? (
         <>
           <div className="w-screen bg-[rgb(0,0,0,0.4)] fixed z-[99] h-screen top-0 left-0 bottom-0"></div>
-          <div className="w-full h-1/3 bg-gradient-to-t from-white from-50%  px-10 py-5 flex flex-col justify-center z-[200] fixed bottom-0 right-0 left-0">
-            <div className="flex flex-col justify-center items-center relative">
-              <h2 className="font-bold text-3xl mb-2">Try premium content</h2>
-              <p className="text-secondaryText font-semibold mb-5">Get special price here</p>
+          <div className="w-full h-2/5 bg-gradient-to-t from-white from-70%  px-10 py-5 flex flex-col justify-center z-[200] fixed bottom-0 right-0 left-0">
+            <div className="flex flex-col justify-end items-center relative pt-14">
+              <h2 className="font-bold text-4xl mb-2">Try premium content</h2>
+              <p className="text-secondaryText font-semibold mb-7">Get special price here</p>
               <Link
                 href={"/subscription"}
-                className="px-5 py-2 rounded-md text-white bg-primary font-medium text-lg hover:opacity-95"
+                className="px-6 py-2 rounded-md text-white bg-primary font-medium text-xl hover:opacity-95"
               >
                 Get Now!
               </Link>

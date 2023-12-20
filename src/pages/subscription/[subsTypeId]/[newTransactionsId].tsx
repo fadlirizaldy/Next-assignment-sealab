@@ -51,7 +51,7 @@ const NewTransactions = () => {
                 {">>>"} Scan Here {"<<<"}
               </h2>
 
-              <div>
+              <div className="animate-flip-down animate-delay-500 animate-once">
                 <QRCode
                   size={256}
                   style={{ height: "auto", maxWidth: "100%", width: "100%" }}
