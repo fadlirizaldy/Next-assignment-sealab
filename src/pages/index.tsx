@@ -32,8 +32,6 @@ export default function Home({ data: dataTopLiked }: { data: NewsType[] }) {
     baseUrl("/news?_sort=created_at&_order=desc&_limit=5"),
     fetcherGet
   );
-  // const { data: dataLatest, is };
-  console.log(dataNewsLatest);
 
   return (
     <MainLayout>
@@ -44,16 +42,13 @@ export default function Home({ data: dataTopLiked }: { data: NewsType[] }) {
           </div>
         ) : (
           <div className="pt-10">
-            <h2 className="font-semibold text-3xl mb-4 pb-2 border-b border-slate-600 w-fit animate-fade-up animate-delay-300 animate-once">
+            <h2 className="font-semibold text-3xl mb-4 pb-2 text-center md:text-start animate-fade-up animate-delay-300 animate-once">
               Top Liked News
             </h2>
 
-            <div className="grid gap-5 grid-cols-4 grid-rows-2 animate-fade-up animate-delay-500 animate-once">
-              <div
-                className="w-full cursor-pointer col-span-2 row-span-full"
-                onClick={() => router.push(`/news/detail/${dataTopLiked[0]?.id}`)}
-              >
-                <div className="relative h-full">
+            <div className="flex flex-col xl:flex-row gap-5 animate-fade-up animate-delay-500 animate-once">
+              <div className="w-full cursor-pointer" onClick={() => router.push(`/news/detail/${dataTopLiked[0]?.id}`)}>
+                <div className="relative xl:h-full md:h-64 h-72">
                   <img
                     src={dataTopLiked[0]?.img ? dataTopLiked[0]?.img : ""}
                     alt=""
@@ -64,63 +59,65 @@ export default function Home({ data: dataTopLiked }: { data: NewsType[] }) {
                   </div>
                 </div>
               </div>
-              <div
-                className="w-full cursor-pointer col-span-1 row-span-1"
-                onClick={() => router.push(`/news/detail/${dataTopLiked[1]?.id}`)}
-              >
-                <div className="relative h-full">
-                  <img
-                    src={dataTopLiked[1]?.img ? dataTopLiked[1]?.img : ""}
-                    alt=""
-                    className="w-full object-cover h-full"
-                  />
-                  <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataTopLiked[1]?.title}</h3>
+              <div className="grid grid-cols-2 grid-rows-2 gap-3 w-full">
+                <div
+                  className="w-full cursor-pointer xl:h-full md:h-64 h-60"
+                  onClick={() => router.push(`/news/detail/${dataTopLiked[1]?.id}`)}
+                >
+                  <div className="relative h-full">
+                    <img
+                      src={dataTopLiked[1]?.img ? dataTopLiked[1]?.img : ""}
+                      alt=""
+                      className="w-full object-cover h-full"
+                    />
+                    <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
+                      <h3 className="font-semibold text-xl">{dataTopLiked[1]?.title}</h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className="w-full cursor-pointer col-span-1 row-span-1"
-                onClick={() => router.push(`/news/detail/${dataTopLiked[2]?.id}`)}
-              >
-                <div className="relative h-full">
-                  <img
-                    src={dataTopLiked[2]?.img ? dataTopLiked[2]?.img : ""}
-                    alt=""
-                    className="w-full object-cover h-full"
-                  />
-                  <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataTopLiked[2]?.title}</h3>
+                <div
+                  className="w-full cursor-pointer"
+                  onClick={() => router.push(`/news/detail/${dataTopLiked[2]?.id}`)}
+                >
+                  <div className="relative xl:h-full md:h-64 h-60">
+                    <img
+                      src={dataTopLiked[2]?.img ? dataTopLiked[2]?.img : ""}
+                      alt=""
+                      className="w-full object-cover h-full"
+                    />
+                    <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
+                      <h3 className="font-semibold text-xl">{dataTopLiked[2]?.title}</h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className="w-full cursor-pointer col-span-1 row-span-1"
-                onClick={() => router.push(`/news/detail/${dataTopLiked[3]?.id}`)}
-              >
-                <div className="relative h-full">
-                  <img
-                    src={dataTopLiked[3]?.img ? dataTopLiked[3]?.img : ""}
-                    alt=""
-                    className="w-full object-cover h-full"
-                  />
-                  <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataTopLiked[3]?.title}</h3>
+                <div
+                  className="w-full cursor-pointer"
+                  onClick={() => router.push(`/news/detail/${dataTopLiked[3]?.id}`)}
+                >
+                  <div className="relative xl:h-full md:h-64 h-60">
+                    <img
+                      src={dataTopLiked[3]?.img ? dataTopLiked[3]?.img : ""}
+                      alt=""
+                      className="w-full object-cover h-full"
+                    />
+                    <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
+                      <h3 className="font-semibold text-xl">{dataTopLiked[3]?.title}</h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className="w-full cursor-pointer col-span-1 row-span-1"
-                onClick={() => router.push(`/news/detail/${dataTopLiked[4]?.id}`)}
-              >
-                <div className="relative h-full">
-                  <img
-                    src={dataTopLiked[4]?.img ? dataTopLiked[4]?.img : ""}
-                    alt=""
-                    className="w-full object-cover h-full"
-                  />
-                  <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataTopLiked[4]?.title}</h3>
+                <div
+                  className="w-full cursor-pointer"
+                  onClick={() => router.push(`/news/detail/${dataTopLiked[4]?.id}`)}
+                >
+                  <div className="relative xl:h-full md:h-64 h-60">
+                    <img
+                      src={dataTopLiked[4]?.img ? dataTopLiked[4]?.img : ""}
+                      alt=""
+                      className="w-full object-cover h-full"
+                    />
+                    <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
+                      <h3 className="font-semibold text-xl">{dataTopLiked[4]?.title}</h3>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -135,18 +132,18 @@ export default function Home({ data: dataTopLiked }: { data: NewsType[] }) {
               {dataNewsLatest?.map((data: NewsType, idx: number) => {
                 return (
                   <div
-                    className="flex gap-4 w-full h-32 pb-2 border-b border-slate-300 relative overflow-hidden"
+                    className="flex flex-col md:flex-row gap-4 w-full h-64 md:h-32 pb-2 mb-4 border-b border-slate-300 relative overflow-hidden"
                     key={data.id}
                   >
                     <img
                       src={data.img}
                       alt=""
-                      className="w-52 h-full object-cover cursor-pointer"
+                      className="md:w-52 h-full object-cover cursor-pointer"
                       onClick={() => router.push(`/news/detail/${data.id}`)}
                     />
 
                     {data.isPremium ? (
-                      <div className="bg-[#FFF200] font-semibold p-1 w-32 text-center absolute -left-9 top-3 -rotate-45">
+                      <div className="bg-[#FFF200] font-semibold p-1 hidden md:block w-32 text-center absolute -left-9 top-3 -rotate-45">
                         <h2>Premium</h2>
                       </div>
                     ) : null}
@@ -154,7 +151,9 @@ export default function Home({ data: dataTopLiked }: { data: NewsType[] }) {
                     <div className="cursor-pointer" onClick={() => router.push(`/news/detail/${data.id}`)}>
                       <div className="flex gap-4 items-center">
                         <h3 className="font-semibold text-xl">{data.title}</h3>
-                        <p className="font-medium text-secondaryText capitalize text-sm italic">{data?.category}</p>
+                        <p className="font-medium text-secondaryText capitalize text-sm italic hidden md:hidden">
+                          {data?.category}
+                        </p>
                       </div>
                       <p className="line-clamp-2">{data?.description}</p>
                     </div>

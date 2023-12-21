@@ -11,7 +11,6 @@ const RecommendSection = ({ newsId }: { newsId: string }) => {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   const [recommendNews, setRecommendNews] = useState([]);
-  console.log(user);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -35,10 +34,10 @@ const RecommendSection = ({ newsId }: { newsId: string }) => {
     }
   }, [newsId]);
   return (
-    <div className="grid grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {recommendNews?.map((news: NewsType) => (
         <div
-          className="rounded-xl relative overflow-hidden group text-white cursor-pointer h-52"
+          className="rounded-xl relative overflow-hidden group text-white cursor-pointer h-44 sm:h-52"
           onClick={() => router.push(`/news/detail/${news?.id}`)}
           key={news.id}
         >

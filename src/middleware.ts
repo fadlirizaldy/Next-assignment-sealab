@@ -39,21 +39,3 @@ export const config = {
 };
 
 // ==================================
-
-// matcher: ["/auth/:path*", "/admin/:path*", "/dashboard/:path*"],
-//
-
-//   if (request.nextUrl.pathname === "/dashboard") {
-//     return NextResponse.redirect(request.nextUrl.origin + "/dashboard/account");
-//   }
-
-//   if (request.nextUrl.pathname === "/dashboard/users") {
-//     return NextResponse.redirect(request.nextUrl.origin + "/dashboard/users/subscriptions");
-//   }
-
-// console.log(request.nextUrl.pathname);
-
-//   console.log("hello");
-//   if (!request.nextUrl.pathname.startsWith("/admin") && role === "admin") {
-//     return NextResponse.redirect(request.nextUrl.origin + "/admin");
-//   }

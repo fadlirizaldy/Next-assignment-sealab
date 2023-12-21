@@ -3,14 +3,14 @@ import React from "react";
 
 const CardProfile = ({ title, dataProfile }: { title: string; dataProfile: UserType }) => {
   return (
-    <div className="rounded-xl border border-slate-400 w-3/5 bg-white shadow-md">
+    <div className="rounded-xl border border-slate-400 w-11/12 xl:w-3/5 bg-white shadow-md">
       <h2 className="font-semibold text-2xl px-4 py-3">Profile {title}</h2>
       <hr className="h-px bg-[#BABABA]" />
 
       <div className="px-8 py-5">
-        <div className=" flex gap-20">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-20 items-center">
           <img src={dataProfile?.imgUrl} alt="" className="object-cover rounded-full w-52 h-52" />
-          <div className="w-1/2">
+          <div className="w-full md:w-1/2">
             <label htmlFor="" className="font-medium text-lg">
               Name
             </label>

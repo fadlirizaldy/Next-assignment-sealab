@@ -32,7 +32,7 @@ const NewsSection = () => {
         News
       </h3>
 
-      <div className="flex items-center gap-3">
+      <div className="grid grid-cols-2 sm:flex items-center gap-3">
         <button
           className="p-[5px] px-2 border border-primaryBtn rounded-xl hover:text-white hover:bg-primaryBtn"
           onClick={() => {
@@ -43,7 +43,7 @@ const NewsSection = () => {
           Reset
         </button>
         <select
-          className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl w-3/12"
+          className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl sm:w-3/12"
           name="category"
           onChange={(e) => setFilter((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
           value={filter?.category}
@@ -58,7 +58,7 @@ const NewsSection = () => {
           <option value="Puzzlers and party games">Puzzlers and party games</option>
         </select>
         <select
-          className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl w-3/12"
+          className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl sm:w-3/12"
           name="type"
           onChange={(e) => setFilter((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
           value={filter?.type}
@@ -70,7 +70,7 @@ const NewsSection = () => {
           <option value={"false"}>Free</option>
         </select>
         <select
-          className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl w-3/12"
+          className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl sm:w-3/12"
           name="date"
           onChange={(e) => setFilter((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
           value={filter?.date}
@@ -81,7 +81,7 @@ const NewsSection = () => {
           <option value={"desc"}>Latest</option>
           <option value={"asc"}>Oldest</option>
         </select>
-        <div className="relative w-2/5">
+        <div className="relative w-full col-span-2 sm:w-2/5">
           <input
             type="text"
             placeholder="Search something..."
@@ -104,10 +104,10 @@ const NewsSection = () => {
         </div>
       ) : dataNews?.length > 0 ? (
         <>
-          <section className="grid grid-cols-3 grid-rows gap-6 mt-5">
+          <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows gap-6 mt-5">
             {dataNews?.slice(0, limit).map((news: NewsType) => (
               <div
-                className="rounded-xl relative overflow-hidden group text-white cursor-pointer h-64"
+                className="rounded-xl relative overflow-hidden group text-white cursor-pointer h-44 md:h-60"
                 onClick={() => router.push(`/news/detail/${news?.id}`)}
                 key={news.id}
               >

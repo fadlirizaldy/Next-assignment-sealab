@@ -57,22 +57,22 @@ const SubscriptionPage = () => {
 
           <hr className="h-px bg-[#BABABA] my-6 " />
 
-          <div className="flex flex-col gap-2 pl-3 text-base md:text-2xl">
-            <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4 pl-3 text-base md:text-xl">
+            <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3">
                 <Icon icon="ph:book-duotone" color="#1a4649" />
                 <h4 className="">Access to all news</h4>
               </div>
               <p className="text-secondaryText">Access to all news and article (premium and free content)</p>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3">
                 <Icon icon="ant-design:read-outlined" color="#1a4649" />
                 <h4 className="">Enhance your reading experience</h4>
               </div>
               <p className="text-secondaryText">Read offline wherever you go</p>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3">
                 <Icon icon="mdi:ads-off" color="#1a4649" />
                 <h4 className="">Free of ads</h4>

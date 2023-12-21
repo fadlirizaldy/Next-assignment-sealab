@@ -46,7 +46,7 @@ const NewTransactions = () => {
             </button>
           </div>
           <div className="max-h-full flex flex-col items-center max-w-[1200px] mx-auto w-[90%] mt-10">
-            <div className="rounded-xl border border-gray-400 w-1/2 flex flex-col items-center p-3">
+            <div className="rounded-xl border border-gray-400 w-full md:w-1/2 flex flex-col items-center p-3">
               <h2 className="font-semibold text-xl mb-3">
                 {">>>"} Scan Here {"<<<"}
               </h2>

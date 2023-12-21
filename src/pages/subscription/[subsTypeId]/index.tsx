@@ -49,8 +49,8 @@ const SubscriptionTransactions = () => {
       ) : (
         <div className="max-h-full flex flex-col items-center max-w-[1200px] mx-auto w-[90%]">
           <h3 className="mt-10 font-semibold text-2xl mb-5">Payment for Subscription Package</h3>
-          <div className="rounded-lg border border-gray-400 w-1/2">
-            <h5 className="p-3 font-medium text-lg">Price for Subscription</h5>
+          <div className="rounded-lg border border-gray-400 w-full md:w-1/2">
+            <h5 className="p-3 font-medium text-center sm:text-lg">Price for Subscription</h5>
             <hr className="h-px bg-[#BABABA] mb-3" />
 
             <div className="flex justify-between p-3">
