@@ -9,16 +9,14 @@ import { Bar, BarChart, CartesianGrid, Legend, Pie, PieChart, Tooltip, XAxis, YA
 import useSWR from "swr";
 
 type UsersBarChart = { type: string; count: number };
-
-const renderColorfulLegendText = (value: string, entry: any) => {
-  return <span style={{ color: "#596579", fontWeight: 500, padding: "10px" }}>{value}</span>;
-};
+type TransactionsType = { name: string; value: any; fill: string };
 
 const dashboard = () => {
   const { data: dataTransaction, isLoading: loadingTransaction } = useSWR(baseUrl("/transactions"), fetcherGet);
   const { data: dataUsers, isLoading: loadingUsers } = useSWR(baseUrl("/users"), fetcherGet);
 
   const [dataUsersChart, setDataUsersChart] = useState<UsersBarChart[]>();
+  const [dataTypeTransactions, setDataTypeTransactions] = useState<TransactionsType[]>();
 
   useEffect(() => {
     const countUserPremium = () => {
@@ -39,6 +37,7 @@ const dashboard = () => {
       ];
     };
     setDataUsersChart(countUserPremium());
+    setDataTypeTransactions(dataStatusTransaction());
   }, [dataUsers]);
 
   const countReduceTransaction = () => {
@@ -118,26 +117,19 @@ const dashboard = () => {
             </div>
             <div className="flex flex-col justify-center items-center">
               <h3 className="text-2xl">Type Transactions</h3>
-              <PieChart width={550} height={300} className="flex justify-center items-center">
-                <Legend
-                  height={18}
-                  iconType="circle"
-                  layout="vertical"
-                  verticalAlign="middle"
-                  iconSize={10}
-                  formatter={renderColorfulLegendText}
-                />
+              <PieChart width={550} height={300}>
+                <Legend height={18} cx={250} cy={50} />
                 <Pie
-                  data={dataStatusTransaction()}
                   dataKey="value"
                   nameKey="name"
                   innerRadius={60}
                   outerRadius={80}
-                  cx={100}
+                  cx={270}
                   cy={120}
                   fill="#82ca9d"
                   label
                   paddingAngle={0}
+                  data={dataTypeTransactions}
                 />
                 <Tooltip />
               </PieChart>
