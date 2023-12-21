@@ -108,7 +108,6 @@ const NewsSection = () => {
             {dataNews?.slice(0, limit).map((news: NewsType) => (
               <div
                 className="rounded-xl relative overflow-hidden group text-white cursor-pointer h-64"
-                //  onClick={() => handleClick(`/${type}/detail/${data.id}`)}
                 onClick={() => router.push(`/news/detail/${news?.id}`)}
                 key={news.id}
               >

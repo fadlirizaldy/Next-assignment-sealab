@@ -1,7 +1,9 @@
 import MainLayout from "@/components/layouts/MainLayout";
+import RecommendSection from "@/components/news/RecommendSection";
 import { baseUrl } from "@/services/base";
 import { fetcherGet, fetcherPatch } from "@/services/fetcher/fetcher";
 import useAuthStore from "@/stores/userZustand";
+import { NewsType, UserType } from "@/utils/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -14,8 +16,10 @@ const NewsDetail = () => {
   const router = useRouter();
   const { newsId } = router.query;
   const { data: newsDetail, isLoading } = useSWR(baseUrl(`/news/${newsId}`), fetcherGet, { refreshInterval: 2000 });
+
   const user = useAuthStore((state) => state.user);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const setUser = useAuthStore((state) => state.setUser);
 
   const handleLike = async () => {
     if (!isLoggedIn) {
@@ -29,10 +33,12 @@ const NewsDetail = () => {
       const newLikeArray = user?.like.filter((id) => id !== newsId);
 
       await fetcherPatch(baseUrl(`/users/${user.id}`), { like: newLikeArray });
+      setUser({ ...user, like: newLikeArray });
     } else {
       await fetcherPatch(baseUrl(`/news/${newsId}`), { like: newsDetail.like + 1 });
-
-      await fetcherPatch(baseUrl(`/users/${user.id}`), { like: [...user.like, newsId] });
+      const newLikeArray = [...user.like, newsId];
+      await fetcherPatch(baseUrl(`/users/${user.id}`), { like: newLikeArray });
+      setUser({ ...user, like: newLikeArray as string[] });
     }
   };
 
@@ -128,6 +134,14 @@ const NewsDetail = () => {
                 <Icon icon="bx:share" width={22} className="text-primary group-hover:text-white" />
                 <p className="text-primary font-medium group-hover:text-white">Share ({newsDetail?.share})</p>
               </div>
+            </div>
+
+            <hr className="w-full h-1 mt-8 mb-5 bg-gray-200 border-0 rounded dark:bg-gray-700" />
+
+            <div className="flex flex-col items-center ">
+              <h2 className="text-primary font-semibold text-2xl mb-5">Recommend News</h2>
+
+              <RecommendSection newsId={newsId as string} />
             </div>
           </div>
         )}

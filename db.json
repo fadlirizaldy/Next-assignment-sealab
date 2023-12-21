@@ -7,7 +7,11 @@
       "password": "fadli123",
       "phone": "085691115666",
       "address": "Jalan",
-      "like": ["6a64dbde-9668-11ee-b9d1-0242ac120002", "4ad45414-9660-11ee-b9d1-0242ac120002"],
+      "like": [
+        "6a64dbde-9668-11ee-b9d1-0242ac120002",
+        "4ad45414-9660-11ee-b9d1-0242ac120002",
+        "PO360b78-32ec-4d8a-b757-270298c14da2"
+      ],
       "plan": "premium",
       "imgUrl": "https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-man-is-wearing-glasses-in-silhouette-on-a-dark-background-image_2886069.jpg",
       "expired_subs": "2023-08-03T05:04:46.665Z",
@@ -179,8 +183,8 @@
       "img": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/12/the-thaumaturge-wiktor.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5",
       "category": "Role-playing (RPG)",
       "id": "PO360b78-32ec-4d8a-b757-270298c14da2",
-      "like": 0,
-      "share": 1,
+      "like": 1,
+      "share": 2,
       "created_at": "2023-07-24T05:04:46.665Z",
       "updated_at": "2023-07-24T05:04:46.665Z"
     },
