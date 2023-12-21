@@ -18,13 +18,41 @@ const NewsDetail = () => {
   const user = useAuthStore((state) => state.user);
 
   const handleShare = () => {
-    navigator.clipboard.writeText(process.env.NEXT_PUBLIC_LOCAL_WEB_URL + router.asPath);
-    toast("Link copied!", {
-      position: "bottom-center",
-      autoClose: 2000,
-      pauseOnHover: false,
-      theme: "light",
-    });
+    if (typeof navigator.clipboard == "undefined") {
+      var textArea = document.createElement("textarea");
+      textArea.value = process.env.NEXT_PUBLIC_LOCAL_WEB_URL + router.asPath;
+      textArea.style.position = "fixed";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        var successful = document.execCommand("copy");
+        var msg = successful ? "successful" : "unsuccessful";
+        toast("Link copied!", {
+          position: "bottom-center",
+          autoClose: 2000,
+          pauseOnHover: false,
+          theme: "light",
+        });
+      } catch (err) {
+        toast.warn("Can't copy the link", {
+          position: "bottom-center",
+          autoClose: 2000,
+          pauseOnHover: false,
+          theme: "light",
+        });
+      }
+      document.body.removeChild(textArea);
+    } else {
+      navigator.clipboard.writeText(process.env.NEXT_PUBLIC_LOCAL_WEB_URL + router.asPath);
+      toast("Link copied!", {
+        position: "bottom-center",
+        autoClose: 2000,
+        pauseOnHover: false,
+        theme: "light",
+      });
+    }
 
     fetcherGet(baseUrl(`/news/${newsId}`)).then((res) => {
       fetcherPatch(baseUrl(`/news/${newsId}`), { share: res.share + 1 });
