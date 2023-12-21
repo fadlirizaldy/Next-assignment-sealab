@@ -126,7 +126,7 @@ export default function Home({ data: dataTopLiked }: { data: NewsType[] }) {
               </div>
             </div>
 
-            <div className="mt-10 animate-fade-up animate-delay-500 animate-once">
+            <div className="mt-10 animate-fade-up animate-delay-700 animate-once">
               <h3 className="text-black text-2xl font-semibold flex items-center gap-1 mb-3">
                 <div className="w-5 h-5 bg-primary"></div>
                 Latest

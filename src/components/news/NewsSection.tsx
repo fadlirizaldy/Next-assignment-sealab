@@ -10,7 +10,7 @@ import useSWR from "swr";
 
 const NewsSection = () => {
   const router = useRouter();
-  const [filter, setFilter] = useState({ category: "", type: "" });
+  const [filter, setFilter] = useState({ category: "", type: "", date: "" });
   const [searchVal, setSearchVal] = useState("");
   const [limit, setLimit] = useState(8);
 
@@ -20,7 +20,7 @@ const NewsSection = () => {
     baseUrl(
       `/news?q=${searchDebounce}${filter.category ? `&category=${filter.category}` : ""}${
         filter.type ? `&isPremium=${filter.type === "true" ? true : false}` : ""
-      }`
+      }${filter.date ? `&_sort=created_at&_order=${filter.date}` : ""}`
     ),
     fetcherGet
   );
@@ -36,7 +36,7 @@ const NewsSection = () => {
         <button
           className="p-[5px] px-2 border border-primaryBtn rounded-xl hover:text-white hover:bg-primaryBtn"
           onClick={() => {
-            setFilter({ category: "", type: "" });
+            setFilter({ category: "", type: "", date: "" });
             setSearchVal("");
           }}
         >
@@ -68,6 +68,18 @@ const NewsSection = () => {
           </option>
           <option value={"true"}>Premium</option>
           <option value={"false"}>Free</option>
+        </select>
+        <select
+          className="p-2 pr-8 border border-slate-400 bg-primaryBg rounded-xl w-3/12"
+          name="date"
+          onChange={(e) => setFilter((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+          value={filter?.date}
+        >
+          <option value="" selected hidden>
+            Date
+          </option>
+          <option value={"desc"}>Latest</option>
+          <option value={"asc"}>Oldest</option>
         </select>
         <div className="relative w-2/5">
           <input

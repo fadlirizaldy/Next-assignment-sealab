@@ -4,7 +4,6 @@ import { fetcherGet, fetcherPatch } from "@/services/fetcher/fetcher";
 import useAuthStore from "@/stores/userZustand";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
@@ -16,8 +15,32 @@ const NewsDetail = () => {
   const { newsId } = router.query;
   const { data: newsDetail, isLoading } = useSWR(baseUrl(`/news/${newsId}`), fetcherGet, { refreshInterval: 2000 });
   const user = useAuthStore((state) => state.user);
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+
+  const handleLike = async () => {
+    if (!isLoggedIn) {
+      router.push("/auth/login");
+      return;
+    }
+
+    if (user?.like?.includes(newsId as string)) {
+      await fetcherPatch(baseUrl(`/news/${newsId}`), { like: newsDetail.like - 1 });
+
+      const newLikeArray = user?.like.filter((id) => id !== newsId);
+
+      await fetcherPatch(baseUrl(`/users/${user.id}`), { like: newLikeArray });
+    } else {
+      await fetcherPatch(baseUrl(`/news/${newsId}`), { like: newsDetail.like + 1 });
+
+      await fetcherPatch(baseUrl(`/users/${user.id}`), { like: [...user.like, newsId] });
+    }
+  };
 
   const handleShare = () => {
+    if (!isLoggedIn) {
+      router.push("/auth/login");
+      return;
+    }
     if (typeof navigator.clipboard == "undefined") {
       var textArea = document.createElement("textarea");
       textArea.value = process.env.NEXT_PUBLIC_LOCAL_WEB_URL + router.asPath;
@@ -54,13 +77,11 @@ const NewsDetail = () => {
       });
     }
 
-    fetcherGet(baseUrl(`/news/${newsId}`)).then((res) => {
-      fetcherPatch(baseUrl(`/news/${newsId}`), { share: res.share + 1 });
-    });
+    fetcherPatch(baseUrl(`/news/${newsId}`), { share: newsDetail.share + 1 });
   };
 
   useEffect(() => {
-    if (newsDetail?.isPremium && user?.plan === "free") {
+    if (newsDetail?.isPremium && (user?.plan === "free" || !isLoggedIn)) {
       document.body.style.overflow = "hidden";
     }
     return () => {
@@ -91,9 +112,14 @@ const NewsDetail = () => {
             </section>
 
             <div className="flex gap-3 items-center">
-              <div className="mt-5 p-3 rounded-lg border border-primary bg-primary w-fit flex items-center gap-3 hover:opacity-95 cursor-pointer">
-                <Icon icon="mdi:like" color="#fff" width={22} />
-                <p className="text-white">Upvote ({newsDetail?.like})</p>
+              <div
+                className="mt-5 p-3 rounded-lg border border-primary bg-primary w-fit flex items-center gap-3 hover:opacity-95 cursor-pointer"
+                onClick={() => handleLike()}
+              >
+                <Icon icon="mdi:like" color={user?.like?.includes(newsId as string) ? "#ff0000" : "#fff"} width={22} />
+                <p className="text-white">
+                  {user?.like?.includes(newsId as string) ? "Upvoted" : "Upvote"} ({newsDetail?.like})
+                </p>
               </div>
               <div
                 className="mt-5 p-3 rounded-lg border border-primary bg-primaryBg w-fit flex items-center gap-1 hover:bg-primary group cursor-pointer"
@@ -107,7 +133,7 @@ const NewsDetail = () => {
         )}
       </div>
 
-      {newsDetail?.isPremium && user?.plan === "free" ? (
+      {newsDetail?.isPremium && (user?.plan === "free" || !isLoggedIn) ? (
         <>
           <div className="w-screen bg-[rgb(0,0,0,0.4)] fixed z-[99] h-screen top-0 left-0 bottom-0"></div>
           <div className="w-full h-2/5 bg-gradient-to-t from-white from-70%  px-10 py-5 flex flex-col justify-center z-[200] fixed bottom-0 right-0 left-0">
