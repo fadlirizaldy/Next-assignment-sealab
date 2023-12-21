@@ -55,7 +55,7 @@ const NewTransactions = () => {
                 <QRCode
                   size={256}
                   style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                  value={`http://10.20.191.154:3000/payment/${newTransactionsId}`}
+                  value={`${process.env.NEXT_PUBLIC_LOCAL_WEB_URL}/payment/${newTransactionsId}`}
                   viewBox={`0 0 256 256`}
                 />
               </div>
