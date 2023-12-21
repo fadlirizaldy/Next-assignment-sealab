@@ -66,10 +66,11 @@ const login = () => {
     showToastMessage("Success login! Welcome");
 
     setTimeout(() => {
-      setLoading(false);
       if (responseGetLogin[0].role === "admin") {
         router.replace("/admin/");
+        setLoading(false);
       } else {
+        setLoading(false);
         router.replace("/");
       }
     }, 1000);
