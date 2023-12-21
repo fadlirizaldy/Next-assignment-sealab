@@ -55,7 +55,6 @@ const NewTransactions = () => {
                 <QRCode
                   size={256}
                   style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                  //   value={newTransactionsId as string}
                   value={`http://10.20.191.154:3000/payment/${newTransactionsId}`}
                   viewBox={`0 0 256 256`}
                 />
@@ -71,7 +70,7 @@ const NewTransactions = () => {
 
               <button
                 className="mt-4 bg-primary py-2 px-5 text-white rounded-xl font-medium text-lg hover:opacity-95"
-                onClick={() => router.replace("/news")}
+                onClick={() => router.replace("/")}
               >
                 Back To Home
               </button>

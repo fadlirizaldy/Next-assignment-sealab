@@ -593,6 +593,14 @@
       "transaction_date": "2023-12-21T11:08:48.522Z",
       "total_paid": 270000,
       "status": "process"
+    },
+    {
+      "id": "f50950dd-e7b0-41ed-800e-bcd6c08c6938",
+      "user_id": "a222fa3d-e8c1-495d-a1ce-256d9c894013",
+      "type": "amateur",
+      "transaction_date": "2023-12-21T14:09:11.838Z",
+      "total_paid": 270000,
+      "status": "process"
     }
   ],
   "plan": [
