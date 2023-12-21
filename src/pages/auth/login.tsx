@@ -117,7 +117,7 @@ const login = () => {
         </form>
 
         <p className="text-center">
-          Don't have account yet? Regsiter{" "}
+          Don't have account yet? Register{" "}
           <Link href="/auth/register" className="font-semibold text-primary">
             here
           </Link>

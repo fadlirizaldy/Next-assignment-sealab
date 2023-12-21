@@ -3,12 +3,16 @@ import { baseUrl } from "@/services/base";
 import { fetcherGet } from "@/services/fetcher/fetcher";
 import { TransactionType, UserType } from "@/utils/types";
 import React, { useEffect, useState } from "react";
-import CountUp, { useCountUp } from "react-countup";
+import CountUp from "react-countup";
 import { BarLoader } from "react-spinners";
-import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Legend, Pie, PieChart, Tooltip, XAxis, YAxis } from "recharts";
 import useSWR from "swr";
 
 type UsersBarChart = { type: string; count: number };
+
+const renderColorfulLegendText = (value: string, entry: any) => {
+  return <span style={{ color: "#596579", fontWeight: 500, padding: "10px" }}>{value}</span>;
+};
 
 const dashboard = () => {
   const { data: dataTransaction, isLoading: loadingTransaction } = useSWR(baseUrl("/transactions"), fetcherGet);
@@ -37,11 +41,23 @@ const dashboard = () => {
     setDataUsersChart(countUserPremium());
   }, [dataUsers]);
 
-  const countReduce = () => {
+  const countReduceTransaction = () => {
     return dataTransaction?.reduce(
       (accumulator: number, currentValue: TransactionType) => accumulator + currentValue.total_paid,
       0
     );
+  };
+
+  const dataStatusTransaction = () => {
+    const countComplete = dataTransaction?.filter((data: TransactionType) => data.status === "completed").length;
+    const countCanceled = dataTransaction?.filter((data: TransactionType) => data.status === "canceled").length;
+    const countProcess = dataTransaction?.filter((data: TransactionType) => data.status === "process").length;
+
+    return [
+      { name: "Completed", value: countComplete, fill: "#16A34A" },
+      { name: "Canceled", value: countCanceled, fill: "#FF4949" },
+      { name: "Process", value: countProcess, fill: "#3B82F6" },
+    ];
   };
 
   return (
@@ -71,7 +87,7 @@ const dashboard = () => {
                 ) : (
                   <div className="flex items-center">
                     <h2 className="text-2xl">Rp</h2>
-                    <CountUp end={countReduce()} duration={2} className="text-2xl" separator="." />
+                    <CountUp end={countReduceTransaction()} duration={2} className="text-2xl" separator="." />
                   </div>
                 )}
               </div>
@@ -88,16 +104,44 @@ const dashboard = () => {
             </div>
           </section>
 
-          <div className="mt-10 p-4 rounded-lg shadow-md flex flex-col items-center border border-slate-300">
-            <h3 className="text-2xl">Premium & Free User</h3>
-            <BarChart width={500} height={300} data={dataUsersChart}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="type" />
-              <YAxis dataKey="count" />
-              <Tooltip />
-              <Legend />
-              <Bar label={true} dataKey="count" fill="#1A4649" />
-            </BarChart>
+          <div className="mt-10 p-4 rounded-lg shadow-md flex gap-10 items-center border border-slate-300">
+            <div className="flex flex-col items-center">
+              <h3 className="text-2xl">Premium & Free User</h3>
+              <BarChart width={500} height={300} data={dataUsersChart}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="type" />
+                <YAxis dataKey="count" />
+                <Tooltip />
+                <Legend />
+                <Bar label={true} dataKey="count" fill="#1A4649" />
+              </BarChart>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <h3 className="text-2xl">Type Transactions</h3>
+              <PieChart width={550} height={300} className="flex justify-center items-center">
+                <Legend
+                  height={18}
+                  iconType="circle"
+                  layout="vertical"
+                  verticalAlign="middle"
+                  iconSize={10}
+                  formatter={renderColorfulLegendText}
+                />
+                <Pie
+                  data={dataStatusTransaction()}
+                  dataKey="value"
+                  nameKey="name"
+                  innerRadius={60}
+                  outerRadius={80}
+                  cx={100}
+                  cy={120}
+                  fill="#82ca9d"
+                  label
+                  paddingAngle={0}
+                />
+                <Tooltip />
+              </PieChart>
+            </div>
           </div>
         </div>
       </div>

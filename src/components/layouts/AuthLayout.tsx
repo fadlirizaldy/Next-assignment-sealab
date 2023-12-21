@@ -8,7 +8,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
       <Link href={"/"} className="font-semibold text-3xl absolute p-7 text-white">
         PixelNews
       </Link>
-      <div className="absolute top-1/2 transform -translate-x-1/2 -translate-y-1/2 left-1/2 w-[600px] h-fit rounded-[24px] bg-[#FFFFFF] p-[32px] justify-center border-2 border-[#E1E4EA] shadow-2xl">
+      <div className="absolute top-1/2 transform -translate-x-1/2 -translate-y-1/2 left-1/2 w-[90%] md:w-[600px] h-fit rounded-[24px] bg-[#FFFFFF] p-[32px] justify-center border-2 border-[#E1E4EA] shadow-2xl">
         {children}
       </div>
     </div>
