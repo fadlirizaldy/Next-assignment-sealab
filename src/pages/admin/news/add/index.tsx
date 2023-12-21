@@ -72,6 +72,7 @@ const AddNewsPage = () => {
       ...dataNews,
       id: uuidv4(),
       like: 0,
+      share: 0,
       img: url,
       created_at: new Date(),
       updated_at: new Date(),

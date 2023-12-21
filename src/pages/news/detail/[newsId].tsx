@@ -1,19 +1,35 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import { baseUrl } from "@/services/base";
-import { fetcherGet } from "@/services/fetcher/fetcher";
+import { fetcherGet, fetcherPatch } from "@/services/fetcher/fetcher";
 import useAuthStore from "@/stores/userZustand";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
+import { ToastContainer, toast } from "react-toastify";
 import useSWR from "swr";
 
 const NewsDetail = () => {
   const router = useRouter();
   const { newsId } = router.query;
-  const { data: newsDetail, isLoading } = useSWR(baseUrl(`/news/${newsId}`), fetcherGet);
+  const { data: newsDetail, isLoading } = useSWR(baseUrl(`/news/${newsId}`), fetcherGet, { refreshInterval: 2000 });
   const user = useAuthStore((state) => state.user);
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(process.env.NEXT_PUBLIC_LOCAL_WEB_URL + router.asPath);
+    toast("Link copied!", {
+      position: "bottom-center",
+      autoClose: 2000,
+      pauseOnHover: false,
+      theme: "light",
+    });
+
+    fetcherGet(baseUrl(`/news/${newsId}`)).then((res) => {
+      fetcherPatch(baseUrl(`/news/${newsId}`), { share: res.share + 1 });
+    });
+  };
 
   useEffect(() => {
     if (newsDetail?.isPremium && user?.plan === "free") {
@@ -33,6 +49,7 @@ const NewsDetail = () => {
           </div>
         ) : (
           <div className="pt-10">
+            <ToastContainer position="bottom-center" theme="light" />
             <h2 className="font-semibold text-3xl pb-2 border-b border-slate-600 w-fit">{newsDetail?.title}</h2>
             <div className="flex mb-4 gap-4">
               <p className="text-slate-400 font-medium capitalize">{newsDetail?.category}</p>
@@ -45,9 +62,18 @@ const NewsDetail = () => {
               <p className="text-justify text-lg">{newsDetail?.description}</p>
             </section>
 
-            <div className="mt-5 p-3 rounded-lg border border-primary bg-primary w-fit flex items-center gap-3 hover:opacity-95 cursor-pointer">
-              <Icon icon="mdi:like" color="#fff" width={22} />
-              <p className="text-white">Upvote ({newsDetail?.like})</p>
+            <div className="flex gap-3 items-center">
+              <div className="mt-5 p-3 rounded-lg border border-primary bg-primary w-fit flex items-center gap-3 hover:opacity-95 cursor-pointer">
+                <Icon icon="mdi:like" color="#fff" width={22} />
+                <p className="text-white">Upvote ({newsDetail?.like})</p>
+              </div>
+              <div
+                className="mt-5 p-3 rounded-lg border border-primary bg-primaryBg w-fit flex items-center gap-1 hover:bg-primary group cursor-pointer"
+                onClick={() => handleShare()}
+              >
+                <Icon icon="bx:share" width={22} className="text-primary group-hover:text-white" />
+                <p className="text-primary font-medium group-hover:text-white">Share ({newsDetail?.share})</p>
+              </div>
             </div>
           </div>
         )}

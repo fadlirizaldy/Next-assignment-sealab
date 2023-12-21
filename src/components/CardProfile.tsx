@@ -25,7 +25,7 @@ const CardProfile = ({ title, dataProfile }: { title: string; dataProfile: UserT
             </label>
             <input
               type="text"
-              className="rounded-[8px] border border-gray-400 bg-[#dddede] focus:outline-primaryBtn px-3 w-full py-2"
+              className="rounded-[8px] border border-gray-400 bg-[#ebecec] focus:outline-primaryBtn px-3 w-full py-2"
               value={dataProfile?.email}
               disabled={true}
             />
@@ -56,8 +56,9 @@ const CardProfile = ({ title, dataProfile }: { title: string; dataProfile: UserT
         </label>
         <input
           type="text"
-          className="rounded-[8px] border border-gray-400 bg-[#dddede] focus:outline-primaryBtn px-3 w-1/4 py-2 mb-4"
-          value={dataProfile?.referral_code}
+          className="rounded-[8px] border border-gray-400 bg-[#ebecec] focus:outline-primaryBtn px-3 w-1/4 py-2 mb-4"
+          value={dataProfile?.referral_code ? dataProfile?.referral_code : "-"}
+          disabled={true}
         />
       </div>
 

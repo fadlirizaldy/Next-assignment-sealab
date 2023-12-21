@@ -161,7 +161,7 @@
       "description": "Baldur's Gate 3 has released a small update on arguably its biggest night, fixing a few important bugs, glitches, crashes, and even a certain exploit regarding merchants. While Patch 5 for Baldur's Gate 3 added a proper epilogue to the game, Larian Studios also sought to address some of the game's technical shortcomings as well. For example, Baldur's Gate 3 at launch famously had frequent FPS drops during the massive overworld of Act 3, and Larian discovered a way to improve performance in time for Patch 5 while developing the game's Xbox port.",
       "isPremium": false,
       "like": 150,
-      "share": 0,
+      "share": 2,
       "img": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/12/baldur.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5",
       "category": "Role-playing (RPG)",
       "created_at": "2023-10-01T05:04:46.665Z",
@@ -220,7 +220,7 @@
       "title": "Injection or infusion of cancer chemotherapeutic substance",
       "description": "Supplement Right Lower Extremity Lymphatic with Nonautologous Tissue Substitute, Percutaneous Endoscopic Approach",
       "like": 16,
-      "share": 0,
+      "share": 1,
       "category": "Role-playing (RPG)",
       "isPremium": false,
       "img": "http://dummyimage.com/126x100.png/dddddd/000000",
@@ -451,6 +451,7 @@
       "category": "Role-playing (RPG)",
       "id": "4570c162-937a-45e4-b117-b0fd4597c15f",
       "like": 0,
+      "share": 0,
       "created_at": "2023-12-20T09:06:16.057Z",
       "updated_at": "2023-12-20T09:18:55.564Z"
     },
@@ -462,6 +463,7 @@
       "category": "Role-playing (RPG)",
       "id": "ec9ec716-622d-4a38-ba76-613d64cad35a",
       "like": 0,
+      "share": 0,
       "created_at": "2023-12-20T09:16:18.749Z",
       "updated_at": "2023-12-20T09:16:18.749Z"
     }
