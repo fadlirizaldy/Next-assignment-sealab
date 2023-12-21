@@ -37,7 +37,7 @@ const NewsPage = () => {
         <div className="font-bold max-w-[1200px] w-[90%] mx-auto h-[80%]">
           <h1 className="text-3xl font-semibold py-2 border-b-2 border-slate-700 w-fit">All News</h1>
 
-          <div className="bg-white p-4 flex gap-2 rounded-xl mt-8 items-center shadow-md">
+          <div className="bg-white p-4 flex gap-2 rounded-xl mt-5 items-center shadow-md">
             <Link
               href={"/admin/news/add"}
               className="p-2 text-center bg-primaryBtn rounded-md w-32 text-white hover:opacity-95"

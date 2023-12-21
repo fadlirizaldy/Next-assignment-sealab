@@ -6,7 +6,7 @@ import ModalDelete from "./ModalDelete";
 
 const TableNews = ({ data }: { data: NewsType[] }) => {
   const router = useRouter();
-  const [tmpDeleteData, setTmpDeleteData] = useState<NewsType>([]);
+  const [tmpDeleteData, setTmpDeleteData] = useState<NewsType>();
   const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
@@ -75,7 +75,7 @@ const TableNews = ({ data }: { data: NewsType[] }) => {
           ))}
         </tbody>
       </table>
-      {showModal && <ModalDelete setShowModal={setShowModal} dataDeleted={tmpDeleteData} />}
+      {showModal && <ModalDelete setShowModal={setShowModal} dataDeleted={tmpDeleteData!} />}
     </>
   );
 };

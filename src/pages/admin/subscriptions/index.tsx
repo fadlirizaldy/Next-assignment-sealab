@@ -77,8 +77,8 @@ const SubscriptionsPage = () => {
             </div>
           </div>
 
-          <div className="shadow-md rounded-lg">
-            <table className="mt-7 w-full text-left rtl:text-right text-secondaryText dark:text-gray-400">
+          <div className="shadow-md rounded-lg overflow-x-auto mt-7">
+            <table className="w-full text-left rtl:text-right text-secondaryText dark:text-gray-400">
               <thead className="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" className="px-6 py-4">

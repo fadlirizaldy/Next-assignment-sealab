@@ -19,7 +19,10 @@ const Dropdown = ({ type, setDropdownType, children }: DropdownType) => {
         <h2 className="font-medium text-lg text-gray-700 line-clamp-1">{type}</h2>
 
         {["Category", "Sort by", "Type", "Status"].includes(type) ? (
-          <Icon icon="octicon:triangle-down-24" />
+          <Icon
+            icon="octicon:triangle-down-24"
+            className={`${showDropdown ? "rotate-180" : "rotate-0"}  transition ease-in-out `}
+          />
         ) : (
           <Icon
             icon="iconoir:cancel"
@@ -28,7 +31,7 @@ const Dropdown = ({ type, setDropdownType, children }: DropdownType) => {
             height={24}
             onClick={(e) => {
               e.stopPropagation();
-              setDropdownType((prev) => {
+              setDropdownType((prev: DropdownFilterType) => {
                 if (["Date - Asc", "Date - Desc"].includes(type)) {
                   return { ...prev, sort: "Sort by" };
                 } else if (["premium", "free"].includes(type)) return { ...prev, plan: "Type" };

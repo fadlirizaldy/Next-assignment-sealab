@@ -5,11 +5,11 @@ import { fetcherGet } from "@/services/fetcher/fetcher";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
 import useSWR from "swr";
-import { DropdownFilterType } from "../news";
 import { ScaleLoader } from "react-spinners";
 import { useDebounce } from "@/utils/hooks";
 import ModalTransactions from "@/components/admin/ModalTransactions";
 import { TransactionType } from "@/utils/types";
+import { DropdownFilterType } from "../news";
 
 export const filerColorType = (type: string) => {
   if (type === "completed") return "bg-green-600";
@@ -18,7 +18,10 @@ export const filerColorType = (type: string) => {
 };
 
 const TransactionsPage = () => {
-  const [dropdownType, setDropdownType] = useState<DropdownFilterType>({ statusTransaction: "Status" });
+  const [dropdownType, setDropdownType] = useState<DropdownFilterType>({
+    statusTransaction: "Status",
+    sort: "Sort by",
+  });
   const [searchVal, setSearchVal] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [dataTmp, setDataTmp] = useState<TransactionType>();
@@ -30,6 +33,10 @@ const TransactionsPage = () => {
     baseUrl(
       `/transactions?q=${searchDebounce}&_page=${page}&_limit=8${
         dropdownType.statusTransaction === "Status" ? "" : `&status=${dropdownType.statusTransaction}`
+      }${
+        dropdownType.sort === "Sort by"
+          ? ""
+          : `&_sort=transaction_date&_order=${dropdownType.sort!.split(" - ")[1].toLowerCase()}`
       }`
     ),
     fetcherGet,
@@ -67,6 +74,22 @@ const TransactionsPage = () => {
                   </p>
                 </div>
               </Dropdown>
+              <Dropdown type={dropdownType.sort!} setDropdownType={setDropdownType!}>
+                <div className="p-2 w-full flex flex-col bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] absolute rounded-lg font-medium top-[50px] right-0 z-10">
+                  <p
+                    className="py-2 px-2 hover:bg-gray-100"
+                    onClick={() => setDropdownType((prev: DropdownFilterType) => ({ ...prev, sort: "Date - Asc" }))}
+                  >
+                    Date - Asc
+                  </p>
+                  <p
+                    className="py-2 px-2 hover:bg-gray-100"
+                    onClick={() => setDropdownType((prev: DropdownFilterType) => ({ ...prev, sort: "Date - Desc" }))}
+                  >
+                    Date - Desc
+                  </p>
+                </div>
+              </Dropdown>
               <div className="relative w-2/5">
                 <input
                   type="text"
@@ -88,8 +111,8 @@ const TransactionsPage = () => {
           {isLoading ? (
             <ScaleLoader color="#1A4649" height={40} />
           ) : (
-            <div className="shadow-md rounded-lg">
-              <table className="mt-7 w-full text-left rtl:text-right text-secondaryText dark:text-gray-400">
+            <div className="shadow-md rounded-lg overflow-x-auto mt-7">
+              <table className="w-full text-left rtl:text-right text-secondaryText dark:text-gray-400">
                 <thead className="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" className="px-6 py-4">
