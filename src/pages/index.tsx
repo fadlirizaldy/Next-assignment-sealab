@@ -10,10 +10,30 @@ import { NewsType } from "@/utils/types";
 import { DotLoader, HashLoader } from "react-spinners";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import NewsSection from "@/components/news/NewsSection";
+import { GetServerSideProps } from "next";
 
-export default function Home() {
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await fetch(baseUrl(`/news?_sort=like&_order=desc&_limit=5`));
+
+  const data = await response.json();
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return { props: { data } };
+};
+
+export default function Home({ data: dataTopLiked }: { data: NewsType[] }) {
   const router = useRouter();
-  const { data: dataNews, isLoading } = useSWR(baseUrl("/news?_sort=like&_order=desc"), fetcherGet);
+  const { data: dataNewsLatest, isLoading } = useSWR(
+    baseUrl("/news?_sort=created_at&_order=desc&_limit=5"),
+    fetcherGet
+  );
+  // const { data: dataLatest, is };
+  console.log(dataNewsLatest);
 
   return (
     <MainLayout>
@@ -31,56 +51,76 @@ export default function Home() {
             <div className="grid gap-5 grid-cols-4 grid-rows-2 animate-fade-up animate-delay-500 animate-once">
               <div
                 className="w-full cursor-pointer col-span-2 row-span-full"
-                onClick={() => router.push(`/news/detail/${dataNews[0]?.id}`)}
+                onClick={() => router.push(`/news/detail/${dataTopLiked[0]?.id}`)}
               >
                 <div className="relative h-full">
-                  <img src={dataNews[0]?.img ? dataNews[0]?.img : ""} alt="" className="w-full object-cover h-full" />
+                  <img
+                    src={dataTopLiked[0]?.img ? dataTopLiked[0]?.img : ""}
+                    alt=""
+                    className="w-full object-cover h-full"
+                  />
                   <div className="absolute bottom-6 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataNews[0]?.title}</h3>
+                    <h3 className="font-semibold text-xl">{dataTopLiked[0]?.title}</h3>
                   </div>
                 </div>
               </div>
               <div
                 className="w-full cursor-pointer col-span-1 row-span-1"
-                onClick={() => router.push(`/news/detail/${dataNews[1]?.id}`)}
+                onClick={() => router.push(`/news/detail/${dataTopLiked[1]?.id}`)}
               >
                 <div className="relative h-full">
-                  <img src={dataNews[1]?.img ? dataNews[1]?.img : ""} alt="" className="w-full object-cover h-full" />
+                  <img
+                    src={dataTopLiked[1]?.img ? dataTopLiked[1]?.img : ""}
+                    alt=""
+                    className="w-full object-cover h-full"
+                  />
                   <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataNews[1]?.title}</h3>
+                    <h3 className="font-semibold text-xl">{dataTopLiked[1]?.title}</h3>
                   </div>
                 </div>
               </div>
               <div
                 className="w-full cursor-pointer col-span-1 row-span-1"
-                onClick={() => router.push(`/news/detail/${dataNews[2]?.id}`)}
+                onClick={() => router.push(`/news/detail/${dataTopLiked[2]?.id}`)}
               >
                 <div className="relative h-full">
-                  <img src={dataNews[2]?.img ? dataNews[2]?.img : ""} alt="" className="w-full object-cover h-full" />
+                  <img
+                    src={dataTopLiked[2]?.img ? dataTopLiked[2]?.img : ""}
+                    alt=""
+                    className="w-full object-cover h-full"
+                  />
                   <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataNews[2]?.title}</h3>
+                    <h3 className="font-semibold text-xl">{dataTopLiked[2]?.title}</h3>
                   </div>
                 </div>
               </div>
               <div
                 className="w-full cursor-pointer col-span-1 row-span-1"
-                onClick={() => router.push(`/news/detail/${dataNews[3]?.id}`)}
+                onClick={() => router.push(`/news/detail/${dataTopLiked[3]?.id}`)}
               >
                 <div className="relative h-full">
-                  <img src={dataNews[3]?.img ? dataNews[3]?.img : ""} alt="" className="w-full object-cover h-full" />
+                  <img
+                    src={dataTopLiked[3]?.img ? dataTopLiked[3]?.img : ""}
+                    alt=""
+                    className="w-full object-cover h-full"
+                  />
                   <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataNews[3]?.title}</h3>
+                    <h3 className="font-semibold text-xl">{dataTopLiked[3]?.title}</h3>
                   </div>
                 </div>
               </div>
               <div
                 className="w-full cursor-pointer col-span-1 row-span-1"
-                onClick={() => router.push(`/news/detail/${dataNews[4]?.id}`)}
+                onClick={() => router.push(`/news/detail/${dataTopLiked[4]?.id}`)}
               >
                 <div className="relative h-full">
-                  <img src={dataNews[4]?.img ? dataNews[4]?.img : ""} alt="" className="w-full object-cover h-full" />
+                  <img
+                    src={dataTopLiked[4]?.img ? dataTopLiked[4]?.img : ""}
+                    alt=""
+                    className="w-full object-cover h-full"
+                  />
                   <div className="absolute bottom-5 text-white flex items-center text-xl px-6 gap-2">
-                    <h3 className="font-semibold text-xl">{dataNews[4]?.title}</h3>
+                    <h3 className="font-semibold text-xl">{dataTopLiked[4]?.title}</h3>
                   </div>
                 </div>
               </div>
@@ -92,8 +132,7 @@ export default function Home() {
                 Latest
               </h3>
 
-              {dataNews?.map((data: NewsType, idx: number) => {
-                if (idx < 5 || idx > 9) return;
+              {dataNewsLatest?.map((data: NewsType, idx: number) => {
                 return (
                   <div
                     className="flex gap-4 w-full h-32 pb-2 border-b border-slate-300 relative overflow-hidden"
@@ -129,15 +168,4 @@ export default function Home() {
       </div>
     </MainLayout>
   );
-}
-
-{
-  /* <div className="w-32 bg-green-600 row-span-2">HEHE</div>
-            <div className="w-32 bg-red-600">HEHE</div>
-
-            <div className="w-32 bg-blue-600">HEHE</div>
-
-            <div className="w-32 bg-cyan-600">HEHE</div>
-
-            <div className="w-32 bg-gray-600">HEHE</div> */
 }

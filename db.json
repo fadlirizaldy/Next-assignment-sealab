@@ -57,10 +57,10 @@
       "address": "jalan",
       "phone": "08973216312",
       "like": [],
-      "plan": "free",
+      "plan": "premium",
       "imgUrl": "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg",
       "role": "user",
-      "expired_subs": ""
+      "expired_subs": "2024-01-19T10:33:47.165Z"
     },
     {
       "id": "adk22fa3d-e8c1-495d-a1ce-256d9c894013",
@@ -577,6 +577,14 @@
       "type": "pro",
       "transaction_date": "2023-12-20T09:50:13.864Z",
       "total_paid": 1050000,
+      "status": "completed"
+    },
+    {
+      "id": "17905723-28f1-4f97-ace7-f78deed6340a",
+      "user_id": "a222fa3d-e8c1-495d-a1ce-256d9c894013",
+      "type": "rookie",
+      "transaction_date": "2023-12-20T10:33:33.044Z",
+      "total_paid": 100000,
       "status": "completed"
     }
   ],
